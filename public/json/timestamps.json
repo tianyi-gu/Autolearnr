@@ -1,0 +1,22 @@
+{
+  "ratios": [
+    {
+      "markName": "stop1",
+      "ratio": 0
+    },
+    {
+      "markName": "stop2",
+      "ratio": 0.5
+    }
+  ],
+  "timestamps": [
+    {
+      "markName": "stop1",
+      "timestamp": 2000
+    },
+    {
+      "markName": "stop2",
+      "timestamp": 3000
+    }
+  ]
+}
