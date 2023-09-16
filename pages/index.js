@@ -7,6 +7,7 @@ export default function Home() {
     const [res, setRes] = useState("None");
     const [loading, setLoading] = useState(false);
     const [text, setText] = useState(" testing ");
+    const [script, setScript] = useState("");
   async function onSubmit(e) {
         e.preventDefault();
 
@@ -74,8 +75,10 @@ export default function Home() {
             }
         
             setResult(response);
-            console.log("Your output is", result);
-            console.log("hello");
+            setScript(data);
+
+            console.log(script);
+
             } catch(error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -93,7 +96,7 @@ export default function Home() {
       setRes(err.message)
     }
 
-    console.log(text);
+    console.log("Finished!");
     
     }
   
