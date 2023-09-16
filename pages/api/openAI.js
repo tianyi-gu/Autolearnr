@@ -11,7 +11,7 @@ const openai = new OpenAI({
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
-      const { input } = req.body;
+      const { textInput: input } = req.body;
     
       //Script Generation
       const chatCompletion = await openai.chat.completions.create({
@@ -90,9 +90,9 @@ export default async function handler(req, res) {
       //splitScript is the final script that is split into parts
       const splitScript = response.choices[0].message.content;
       const splitScriptArray = splitScript.split("|");
-      let data = {};
+      let data = [];
       for (let i = 0; i < splitScriptArray.length; i++) {
-        data[i] = { points: mainPoints[i], script: splitScriptArray[i] };
+        data.push({ name: `part${i + 1}`, points: mainPoints[i], script: splitScriptArray[i] });
       }
       const dataJson = JSON.stringify(data);
       console.log(dataJson);

@@ -37,7 +37,7 @@ export default function Home() {
             const updatedText = pdfParseData.txt;
             setText(updatedText);
 
-            const generateResponse = await fetch("/api/generate", {
+            const generateResponse = await fetch("/api/openAI", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
