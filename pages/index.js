@@ -9,19 +9,17 @@ export default function Home() {
   const onSubmit = async (e) => {
     e.preventDefault()
     setFile(e.target.files?.[0])
+
     const formData = new FormData()
     try {
       if (!file) {
         throw new Error('Please upload a file')
       }
       setLoading(true)
-
       formData.append('file', file)
-      console.log(formData)
-
+      console.log(file)
       setRes("Success")
       setLoading(false)
-      
     }
     catch (err) {
       console.log(err)
