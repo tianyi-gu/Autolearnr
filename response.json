@@ -1,21 +1,21 @@
 {
-  "id": "chatcmpl-7zLAtHNpu1qG9O5Xn0dsdkaFDDD5r",
+  "id": "chatcmpl-7zPn2U7c7gxepYUeWajHSxloaCtMJ",
   "object": "chat.completion",
-  "created": 1694853759,
+  "created": 1694871500,
   "model": "gpt-3.5-turbo-0613",
   "choices": [
     {
       "index": 0,
       "message": {
         "role": "assistant",
-        "content": "- Classical mechanics\n- Newtonian mechanics\n- Lagrangian mechanics\n- Hamiltonian mechanics"
+        "content": "1.1 Classical mechanics: Describes motion of macroscopic objects, predict future and past motions.\n1.2 Newtonian mechanics: Based on Newton's Laws, assumes absolute distance, time, and mass.\n1.3 Lagrangian mechanics: Formulation based on stationary-action principle by Lagrange.\n1.4 Hamiltonian mechanics: Connected to geometry, serves as link between classical and quantum mechanics."
       },
       "finish_reason": "stop"
     }
   ],
   "usage": {
-    "prompt_tokens": 72,
-    "completion_tokens": 19,
-    "total_tokens": 91
+    "prompt_tokens": 283,
+    "completion_tokens": 81,
+    "total_tokens": 364
   }
 }
