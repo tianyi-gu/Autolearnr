@@ -6,6 +6,7 @@ dotenv.config();
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+  
 });
 
 export default async function handler(req, res) {
@@ -16,6 +17,7 @@ export default async function handler(req, res) {
       //Script Generation
       const chatCompletion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
+        temperature: 1.2,
         messages: [
           {
             role: "system",
@@ -59,7 +61,10 @@ export default async function handler(req, res) {
         const mainPoint = `<div><h2>${title}</h2>${content}</div>`.replace(
           /\n/g,
           ""
-        ); // Remove newlines
+        ).replace(
+            /Host:/g,
+            ""
+        ) // Remove newlines
         mainPoints.push(mainPoint);
       }
 
@@ -71,17 +76,17 @@ export default async function handler(req, res) {
       const mainPointsString = mainPoints.reduce((acc, curr, index) => {
         return acc + `${index + 1}. ${curr} `;
       }, "");
-      console.log(mainPointsString);
 
 
         // Split script into chunks based on main points
       response = await openai.chat.completions.create({
         temperature: 0,
         model: "gpt-3.5-turbo-16k",
+        temperature: 0,
         messages: [
           {
             role: "system",
-            content: `Split user scripts for a video into ${numberOfPoints} parts without removing or changing any of the script. Base how you split it mostly on the seperation of the following main points - DO NOT USE THE MAIN POINTS DIRECTLY IN THE SPLIT SCRIPT. Here are the ${numberOfPoints} main points: ${mainPointsString}.  Seperate parts with a '|' at the end of each part. IMPORTANT: DO NOT MODIFY THE SCRIPT IN ANY WAY - ONLY SPLIT IT INTO THE PARTS.`,
+            content: `Split user scripts for a video into ${numberOfPoints} parts without removing or changing any of the script. Base how you split it mostly on the seperation of the following main points - DO NOT USE THE MAIN POINTS DIRECTLY IN THE SPLIT SCRIPT. Here are the ${numberOfPoints} main points: ${mainPointsString}. Remember to seperate parts with a '|' at the end of each part - . IMPORTANT: DO NOT MODIFY THE SCRIPT IN ANY WAY - ONLY SPLIT IT INTO THE PARTS.`,
           },
           { role: "user", content: script },
         ],
