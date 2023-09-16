@@ -77,7 +77,7 @@ export default function Home() {
             headers: {
             "Content-Type": "application/json",
             },
-            body: JSON.stringify({ text: pdfText }),
+            body: JSON.stringify({ text: text }),
         });
     
         const data = await response.json();
