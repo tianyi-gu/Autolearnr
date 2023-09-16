@@ -5,7 +5,8 @@ export default function Home() {
   const [file, setFile] = useState(null);
   const [res, setRes] = useState('None');
   const [loading, setLoading] = useState(false);
-    const [text, setText] = useState("");
+    const [text, setText] = useState(" testing ");
+    const [result, setResult] = useState(null);
   async function onSubmit(e) {
     e.preventDefault();
 
@@ -56,11 +57,11 @@ export default function Home() {
       if (response.status === 200) {
         const data = await response.json();
         console.log('API response:', data);
-        setText(data);
+        setText(data[0]);
       } else {
         throw new Error(`API call failed with status ${response.status}`);
       }
-      console.log("THIS IS THE TEXT:", data);
+      console.log(text);
       setRes("Success")
       setLoading(false)
     }
@@ -70,28 +71,30 @@ export default function Home() {
     }
 
     console.log(text);
-    try {
-        const response = await fetch("/api/generate", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ text: pdfText }),
-        });
+
+
+    // try {
+    //     const response = await fetch("/api/generate", {
+    //         method: "POST",
+    //         headers: {
+    //         "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({ text: text }),
+    //     });
     
-        const data = await response.json();
-        if (response.status !== 200) {
-            throw data.error || new Error(`Request failed with status ${response.status}`);
-        }
+    //     const data = await response.json();
+    //     if (response.status !== 200) {
+    //         throw data.error || new Error(`Request failed with status ${response.status}`);
+    //     }
     
-        setResult(response);
-        console.log("Your output is", result);
-        console.log("hello");
-        } catch(error) {
-        // Consider implementing your own error handling logic here
-        console.error(error);
-        alert(error.message);
-        }
+    //     setResult(response);
+    //     console.log("Your output is", result);
+    //     console.log("hello");
+    //     } catch(error) {
+    //     // Consider implementing your own error handling logic here
+    //     console.error(error);
+    //     alert(error.message);
+    //     }
     }
   
   return (
@@ -102,7 +105,7 @@ export default function Home() {
             <div>Loading...</div>
           ) : (
             <>
-              <h1 className='text-6xl font-bold'>PDF Uploader</h1>
+              <h1 className='text-6xl font-bold'>Let's Get Started!</h1>
               <p>Upload a PDF file here</p>
               <form onSubmit={(e) => onSubmit(e)} encType='multipart/form-data'>
                 <input
