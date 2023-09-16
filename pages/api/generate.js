@@ -1,24 +1,21 @@
-import { Configuration, OpenAIApi } from "openai";
+import { Configuration, OpenAI } from "openai";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+const openai = new OpenAI({
+    apiKey: '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'
 });
-const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-  if (!configuration.apiKey) {
-    res.status(500).json({
-      error: {
-        message: "OpenAI API key not configured, please follow instructions in README.md",
-      }
-    });
-    return;
-  }
+//   if (!configuration.apiKey) {
+//     res.status(500).json({
+//       error: {
+//         message: "OpenAI API key not configured, please follow instructions in README.md",
+//       }
+//     });
+//     return;
+//   }
 
-  const animal = req.body.animal || '';
-  const color = req.body.color || '';
-  console.log(color);
-  if (animal.trim().length === 0) {
+  const text = req.body.text || '';
+  if (text.trim().length === 0) {
     res.status(400).json({
       error: {
         message: "Please enter a valid prompt",
@@ -28,14 +25,18 @@ export default async function (req, res) {
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: generatePrompt(animal, color),
-      temperature: 0.8,
-      max_tokens: 400,
-    });
-    console.log(completion.data);
-    res.status(200).json({ result: completion.data.choices[0].text });
+    const chatCompletion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{"role": "user", "content": "What color is the sky?"}],
+      });
+      console.log(chatCompletion.choices[0].message.content);
+    // const completion = await openai.createChatCompletion({
+    //   model: "text-davinci-003",
+    //   prompt: generatePrompt(text),
+    //   temperature: 0.6,
+    // });
+    res.status(200).json({ response: chatCompletion.choices[0].message.content});
+    return;
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -52,10 +53,8 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal, color) {
-    return 'What is the color of red.';
-//   return `Write a descriptive 3-sentence paragraph about a ${color} ${animal} utilizing imagery and vivid details specifically stating the color ${color} as if it was the start of a novel.`;
-//   return `Suggest three names for an animal that is a superhero.
+function generatePrompt(text) {
+  return `What is the color of the sky?`;
 
 // Animal: Cat
 // Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
