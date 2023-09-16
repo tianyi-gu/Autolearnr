@@ -36,13 +36,15 @@ export default async function handler(req, res) {
                 const mainPoint = `<div><h2>${title}</h2>${content}</div>`.replace(/\n/g, ""); // Remove newlines
                 mainPoints.push(mainPoint);
             }
+            //convert array to string
+            const mainPointsString = mainPoints.toString();
 
+            // Convert the array of main points to a JSON array
             const jsonArray = JSON.stringify(mainPoints);
-
             // Write the JSON array to a JSON file
             const jsonFilePath = "skeletonNotes.json";
             fs.writeFileSync(jsonFilePath, jsonArray, "utf-8");
-
+            c
             res.status(200).json(jsonArray);
         } catch (error) {
             console.error("Error:", error);
