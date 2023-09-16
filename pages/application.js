@@ -4,7 +4,7 @@ export default function Application() {
     const [file, setFile] = useState(null);
     const [res, setRes] = useState("None");
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState(""); // Initialize data1 state
+    const [data, setData] = useState("");
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -44,29 +44,23 @@ export default function Application() {
             setLoading(true);
 
             formData.append("pdf", file);
-            console.log(formData);
             const response = await fetch("/api/pdfparse", {
                 method: "POST",
             });
             if (response.status === 200) {
                 dataRes = await response.json();
-                //console.log("API response:", dataRes.txt);
-                //setData(dataRes.txt);
             } else {
                 throw new Error(
                     `API call failed with status ${response.status}`
                 );
             }
-            console.log("THIS IS THE TEXT:", dataRes.txt); 
             setRes("Success");
             setLoading(false);
         } catch (err) {
-            console.log(err);
             setRes(err.message);
         }
         try {
             setLoading(true);
-            console.log("BRRRRR", dataRes.txt); 
             const response = await fetch("/api/openAI", {
                 method: "POST",
                 headers: {
@@ -80,9 +74,39 @@ export default function Application() {
             if (!response.ok) {
                 throw new Error("Failed to fetch data from OpenAI");
             }
-            
+
             const data = await response.json();
-            console.log(data);
+            let count = 0;
+            for (var obj in data) {
+                if (data.hasOwnProperty(obj)) {
+                    // Check if obj is a valid property
+                    const script = data[obj].script;
+                    console.log(script); // Access script property
+                    if (script) {
+                        // Check if script is not undefined
+                        const audioResponse = await fetch(
+                            "/api/synthesizeAudio",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    script: script, 
+                                    fileName: `part${count}.mp3`,
+                                }),
+                            }
+                        );
+                        count++;
+                    } else {
+                        console.error(
+                            "Script is undefined or null for object:",
+                            obj
+                        );
+                    }
+                }
+            }
+
             setRes("Success");
             setLoading(false);
         } catch (err) {
@@ -93,41 +117,33 @@ export default function Application() {
     }
 
     return (
-        <>
-            <div className="flex flex-col items-center justify-center min-h-screen py-2">
-                <div className="flex flex-col items-center gap-4">
-                    {loading ? (
-                        <div>loading</div>
-                    ) : (
-                        <>
-                            <h1 className="text-6xl font-bold ">
-                                PDF to video
-                            </h1>
-                            <p>Upload the pdf of a video file here</p>
-                            <form
-                                onSubmit={(e) => onSubmit(e)}
-                                className="flex flex-col items-center gap-2"
-                            >
-                                <input
-                                    type="file"
-                                    name="file"
-                                    onChange={(e) =>
-                                        setFile(e.target.files?.[0])
-                                    }
-                                    className="border border-gray-300 rounded-md p-2 block"
-                                />
-                                <p>Result: {res}</p>
-                                <button
-                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                    type="submit"
-                                >
-                                    Upload
-                                </button>
-                            </form>
-                        </>
-                    )}
+        <div className="flex flex-col items-center justify-center min-h-screen py-2 gap-4">
+            {loading ? (
+                <div>loading</div>
+            ) : (
+                <div>
+                    <h1 className="text-6xl font-bold ">PDF to video</h1>
+                    <p>Upload the pdf of a video file here</p>
+                    <form
+                        onSubmit={(e) => onSubmit(e)}
+                        className="flex flex-col items-center gap-2"
+                    >
+                        <input
+                            type="file"
+                            name="file"
+                            onChange={(e) => setFile(e.target.files?.[0])}
+                            className="border border-gray-300 rounded-md p-2 block"
+                        />
+                        <p>Result: {res}</p>
+                        <button
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            type="submit"
+                        >
+                            Upload
+                        </button>
+                    </form>
                 </div>
-            </div>
-        </>
+            )}
+        </div>
     );
 }
