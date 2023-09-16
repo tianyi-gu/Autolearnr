@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-7zLAtHNpu1qG9O5Xn0dsdkaFDDD5r",
+  "object": "chat.completion",
+  "created": 1694853759,
+  "model": "gpt-3.5-turbo-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "- Classical mechanics\n- Newtonian mechanics\n- Lagrangian mechanics\n- Hamiltonian mechanics"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 19,
+    "total_tokens": 91
+  }
+}
