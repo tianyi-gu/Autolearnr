@@ -1,5 +1,7 @@
 export default function Footer(){
   return (
-    <div />
+    <footer className="flex justify-center items-center h-16 bg-primary-foreground text-primary">
+      David, Leo, Roshan, Tianyi
+    </footer>
   )
 }
