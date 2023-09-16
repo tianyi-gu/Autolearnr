@@ -76,7 +76,7 @@ export default async function handler(req, res) {
 
         // Split script into chunks based on main points
       response = await openai.chat.completions.create({
-        temperature: 0
+        temperature: 0,
         model: "gpt-3.5-turbo-16k",
         messages: [
           {
