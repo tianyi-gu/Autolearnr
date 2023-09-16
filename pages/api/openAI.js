@@ -72,7 +72,7 @@ export default async function handler(req, res) {
         messages: [
           {
             role: "system",
-            content: `Split user scripts for a video into ${numberOfPoints} parts without removing or changing any of the script. Base how you split it mostly on the seperation of the following ${numberOfPoints} main points, each labelled by a number. Here are the ${numberOfPoints} main points: ${mainPointsString}.  Seperate parts with a '|' at the end of each part. IMPORTANT: DO NOT MODIFY THE SCRIPT IN ANY WAY - ONLY SPLIT IT INTO THE PARTS.`,
+            content: `Split user scripts for a video into ${numberOfPoints} parts without removing or changing any of the script. Base how you split it mostly on the seperation of the following main points - DO NOT USE THE MAIN POINTS DIRECTLY IN THE SPLIT SCRIPT. Here are the ${numberOfPoints} main points: ${mainPointsString}.  Seperate parts with a '|' at the end of each part. IMPORTANT: DO NOT MODIFY THE SCRIPT IN ANY WAY - ONLY SPLIT IT INTO THE PARTS.`,
           },
           { role: "user", content: script },
         ],
