@@ -20,12 +20,34 @@ export default function Home() {
 
       setRes("Success")
       setLoading(false)
-      
     }
     catch (err) {
       console.log(err)
       setRes(err.message)
     }
+    try {
+        const response = await fetch("/api/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ animal: animalInput, color: colorInput }),
+        });
+  
+        const data = await response.json();
+        if (response.status !== 200) {
+          throw data.error || new Error(`Request failed with status ${response.status}`);
+        }
+  
+        setResult(data.result);
+        setAnimalInput("");
+        setColorInput("");
+        console.log('hello');
+      } catch(error) {
+        // Consider implementing your own error handling logic here
+        console.error(error);
+        alert(error.message);
+      }
   }
 
   return (
@@ -42,7 +64,7 @@ export default function Home() {
             <input
               type="file"
               name="file"
-              onChange={(e) => setFile(e.target.files?.[0])}
+              onChange={((e) => setFile(e.target.files?.[0]), console.log("submitted!"))}
               className="border border-gray-300 rounded-md p-2 block"
             />
             <p>Result: {res}</p>
