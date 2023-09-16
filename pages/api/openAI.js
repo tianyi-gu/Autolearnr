@@ -12,21 +12,38 @@ export default async function handler(req, res) {
         try {
             const { input } = req.body;
             const response = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
+                model: "gpt-3.5-turbo-16k",
                 messages: [
                     {
                         role: "system",
                         content:
-                            "You are to be given texts of a lesson. Please summarize the file in a skeleton note in a markdown format in less than 50 words. No explanation is needed",
+                            "You are to be given texts of a lesson. Please summarize the file in HTML with each main point contained within its own div with a title as h2 and a following list of bullet points regarding that main point with sublevels. No explanation is needed. Then can you divide everything up into a JSON array based on each main point thanks man",
                     },
                     { role: "user", content: input },
                 ],
             });
-            const jsonString = JSON.stringify(response, null, 2);
-            const filePath = "response.json";
 
-            fs.writeFileSync(filePath, jsonString);
-            res.status(200).json(response);
+            const responseText = response.choices[0].message.content;
+
+            // Extract main points from HTML and wrap them in div containers with h2 titles
+            const mainPointsRegex = /<h2>(.*?)<\/h2>(.*?)<\/div>/gs;
+            const mainPoints = [];
+            let match;
+
+            while ((match = mainPointsRegex.exec(responseText))) {
+                const title = match[1].trim();
+                const content = match[2].trim();
+                const mainPoint = `<div><h2>${title}</h2>${content}</div>`.replace(/\n/g, ""); // Remove newlines
+                mainPoints.push(mainPoint);
+            }
+
+            const jsonArray = JSON.stringify(mainPoints);
+
+            // Write the JSON array to a JSON file
+            const jsonFilePath = "skeletonNotes.json";
+            fs.writeFileSync(jsonFilePath, jsonArray, "utf-8");
+
+            res.status(200).json(jsonArray);
         } catch (error) {
             console.error("Error:", error);
             res.status(500).send("Internal Server Error");
