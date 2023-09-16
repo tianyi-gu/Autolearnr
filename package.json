@@ -9,9 +9,13 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "formidable": "^3.5.1",
+    "fs": "^0.0.1-security",
     "lucide-react": "^0.277.0",
     "next": "latest",
     "openai": "^4.7.1",
+    "path": "^0.12.7",
+    "pdf-parse": "^1.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^1.14.0",
@@ -21,10 +25,12 @@
     "node": ">=18"
   },
   "devDependencies": {
+    "@types/next": "^9.0.0",
+    "@types/node": "^20.6.2",
     "@types/react": "18.2.21",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
-    "typescript": "5.2.2"
+    "typescript": "^5.2.2"
   }
 }

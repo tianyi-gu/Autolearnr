@@ -30,9 +30,11 @@ export default async function handler(req, res) {
       if (!fs.existsSync(uploadsFolder)) {
         fs.mkdirSync(uploadsFolder);
       }
+
       const uniqueFileName = `uploadedfile`;
       console.log('pdfFile:', pdfFile[0].filepath);
       fs.renameSync(pdfFile[0].filepath, path.join(uploadsFolder, uniqueFileName));
+
       res.status(200).json({ message: 'PDF uploaded and saved successfully' });
     });
   } catch (error) {
