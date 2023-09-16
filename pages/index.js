@@ -12,6 +12,7 @@ const [pdfText, setPdfText] = useState(" testing ");
 async function onSubmit(e) {
     e.preventDefault()
     setFile(e.target.files?.[0])
+
     const formData = new FormData()
     try {
     //   if (!file) {
