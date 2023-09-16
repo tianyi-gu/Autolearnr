@@ -114,8 +114,8 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    const txt = await readPDF("pages/api/Phil101.pdf")
-    console.log(txt);
-
-    res.status(200).json({"message": "good"})
+    const txt = await readPDF("uploads/uploadedfile")
+    // console.log(txt);
+    
+    res.status(200).json({txt})
 }
