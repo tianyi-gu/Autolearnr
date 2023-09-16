@@ -22,8 +22,8 @@ export default async function handler(req, res) {
           },
           {
             role: "user",
-            content: input
-          }
+            content: input,
+          },
         ],
       });
 
@@ -80,9 +80,9 @@ export default async function handler(req, res) {
 
       const splitScript = response.choices[0].message.content;
       const splitScriptArray = splitScript.split("|");
-      let data = {};
+      let data = [];
       for (let i = 0; i < splitScriptArray.length; i++) {
-        data[i] = { points: mainPoints[i], script: splitScriptArray[i] };
+        data.push({name: `part${i + 1}`,points: mainPoints[i], script: splitScriptArray[i] });
       }
       const dataJson = JSON.stringify(data);
       console.log(dataJson);
