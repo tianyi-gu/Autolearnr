@@ -2,11 +2,11 @@ import { data } from "browserslist";
 import { useState } from "react";
 
 export default function Home() {
+    const [result, setResult] = useState("");
     const [file, setFile] = useState(null);
     const [res, setRes] = useState("None");
     const [loading, setLoading] = useState(false);
     const [text, setText] = useState(" testing ");
-      const [result, setResult] = useState(null);
   async function onSubmit(e) {
         e.preventDefault();
 
@@ -56,12 +56,35 @@ export default function Home() {
       });
       if (response.status === 200) {
         const data = await response.json();
-        console.log('API response:', data);
-        setText(data);
+        console.log('API response:', data.txt);
+        setText(data.txt);
+
+        try {
+            const response = await fetch("/api/generate", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ textInput: text }),
+            });
+        
+            const data = await response.json();
+            if (response.status !== 200) {
+                throw data.error || new Error(`Request failed with status ${response.status}`);
+            }
+        
+            setResult(response);
+            console.log("Your output is", result);
+            console.log("hello");
+            } catch(error) {
+            // Consider implementing your own error handling logic here
+            console.error(error);
+            alert(error.message);
+            }
+            
       } else {
         throw new Error(`API call failed with status ${response.status}`);
       }
-      console.log("THIS IS THE TEXT:", data);
       setRes("Success")
       setLoading(false)
     }
@@ -71,28 +94,7 @@ export default function Home() {
     }
 
     console.log(text);
-    try {
-        const response = await fetch("/api/generate", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ text: text }),
-        });
     
-        const data = await response.json();
-        if (response.status !== 200) {
-            throw data.error || new Error(`Request failed with status ${response.status}`);
-        }
-    
-        setResult(response);
-        console.log("Your output is", result);
-        console.log("hello");
-        } catch(error) {
-        // Consider implementing your own error handling logic here
-        console.error(error);
-        alert(error.message);
-        }
     }
   
   return (

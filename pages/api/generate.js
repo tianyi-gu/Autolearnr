@@ -13,8 +13,8 @@ export default async function (req, res) {
 //     });
 //     return;
 //   }
-
-  const text = req.body.text || '';
+    console.log(req.body.textInput);
+  const text = req.body.textInput || '';
   if (text.trim().length === 0) {
     res.status(400).json({
       error: {
@@ -23,11 +23,15 @@ export default async function (req, res) {
     });
     return;
   }
+  else 
+  {
+    console.log("Valid!");
+  }
 
   try {
     const chatCompletion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
-        messages: [{"role": "user", "content": "What color is the sky?"}],
+        messages: [{"role": "user", "content": `Generate a script for a Khan Academy-like educational video on the following content: ${text}`}],
       });
       console.log(chatCompletion.choices[0].message.content);
     // const completion = await openai.createChatCompletion({
