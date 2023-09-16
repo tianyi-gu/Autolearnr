@@ -6,7 +6,7 @@ export default function Home() {
     const [file, setFile] = useState(null);
     const [res, setRes] = useState("None");
     const [loading, setLoading] = useState(false);
-    const [text, setText] = useState(" testing ");
+    const [text, setText] = useState(" philosophy ");
     const [script, setScript] = useState("");
   async function onSubmit(e) {
         e.preventDefault();
@@ -51,13 +51,11 @@ export default function Home() {
             setLoading(true);
 
       formData.append('pdf', file)
-      console.log(formData)
       const response = await fetch('/api/pdfparse', {
         method: 'POST',
       });
       if (response.status === 200) {
         const data = await response.json();
-        console.log('API response:', data.txt);
         setText(data.txt);
 
         try {
