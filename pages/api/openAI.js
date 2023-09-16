@@ -12,13 +12,14 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const { input } = req.body;
-
+    
+      //Script Generation
       const chatCompletion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
           {
             role: "system",
-            content: `New system message: You are to receive texts used to teach a class. You are to teach generate a continuous texts that would be passed into a Text-To-Speech function to teach the class on the topic. Generate spoken texts ONLY, no explanations, headers, or cues.`,
+            content: `You are to receive texts used to teach a class. You are to teach generate a continuous texts that would be passed into a Text-To-Speech function to teach the class on the topic. Generate spoken texts ONLY, no explanations, headers, or cues.`,
           },
           {
             role: "user",
@@ -28,8 +29,10 @@ export default async function handler(req, res) {
       });
 
       const script = chatCompletion.choices[0].message.content;
-      console.log(script);
+      //console.log(script);
 
+
+      //Skeleton Notes Generation
       let response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-16k",
         messages: [
@@ -60,14 +63,19 @@ export default async function handler(req, res) {
         mainPoints.push(mainPoint);
       }
 
+      
       const numberOfPoints = mainPoints.length;
-      console.log(numberOfPoints);
+      //console.log(numberOfPoints);
 
+
+        // Recombine main points into a string for prompting
       const mainPointsString = mainPoints.reduce((acc, curr, index) => {
         return acc + `${index + 1}. ${curr} `;
       }, "");
       console.log(mainPointsString);
 
+
+        // Split script into chunks based on main points
       response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-16k",
         messages: [
@@ -79,6 +87,7 @@ export default async function handler(req, res) {
         ],
       });
 
+      //splitScript is the final script that is split into parts
       const splitScript = response.choices[0].message.content;
       const splitScriptArray = splitScript.split("|");
       let data = {};
