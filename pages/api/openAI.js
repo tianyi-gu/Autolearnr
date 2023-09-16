@@ -18,12 +18,12 @@ export default async function handler(req, res) {
         messages: [
           {
             role: "system",
-            content: `Generate a script for a Khan Academy-like educational video on the following content. Only include text that the host would say, in a speech-like format by only including text that would be spoken.`,
+            content: `New system message: You are to receive texts used to teach a class. You are to teach generate a continuous texts that would be passed into a Text-To-Speech function to teach the class on the topic. Generate spoken texts ONLY, no explanations, headers, or cues.`,
           },
           {
             role: "user",
-            content: input,
-          },
+            content: input
+          }
         ],
       });
 
@@ -36,7 +36,8 @@ export default async function handler(req, res) {
           {
             role: "system",
             content:
-              "You are to be given texts of a lesson. Please summarize the file in HTML with each main point contained within its own div with a title as h2 and a following list of bullet points regarding that main point with sublevels. No explanation is needed. Then can you divide everything up into a JSON array based on each main point thanks man",
+              "You are to be given texts of a lesson. Please return an array of <div>'s, with each entry representing a main point in the text.\
+              Each entry should contain one <h2> tag representing the title of the main point, and a <ul> containing <li>'s representing subpoints. Each array should be a string",
           },
           { role: "user", content: input },
         ],
@@ -80,9 +81,9 @@ export default async function handler(req, res) {
 
       const splitScript = response.choices[0].message.content;
       const splitScriptArray = splitScript.split("|");
-      let data = [];
+      let data = {};
       for (let i = 0; i < splitScriptArray.length; i++) {
-        data.push({name: `part${i + 1}`,points: mainPoints[i], script: splitScriptArray[i] });
+        data[i] = { points: mainPoints[i], script: splitScriptArray[i] };
       }
       const dataJson = JSON.stringify(data);
       console.log(dataJson);
