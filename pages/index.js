@@ -1,14 +1,89 @@
-import Link from "next/link";
 import { Button } from "components/ui/button";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
+  ssr: false, // Set this to false to only render on the client side
+});
 
 export default function Home() {
   const router = useRouter();
+
+  const containerStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "1rem",
+    minHeight: "100vh",
+    padding: "1rem",
+    marginTop: "1rem",
+  };
+
+  const headingStyle = {
+    fontSize: "6rem",
+    textAlign: "center",
+    paddingBottom: "2rem",
+  };
+
+  const descriptionStyle = {
+    fontSize: "1.5rem",
+    fontFamily: "'Times New Roman', serif",
+    textAlign: "center",
+    whiteSpace: "pre-wrap",
+    maxWidth: "50rem",
+  };
+
+  const descriptionText =
+    "Your one-stop shop for dynamic and educational content! First Mile Learning revolutionizes the way you learn by providing interactive, engaging, teacher-like educational resources.";
+
+  const buttonStyle = {
+    fontSize: "2rem",
+    padding: "2rem 3rem", // Increase padding to make the button bigger
+    backgroundColor: "transparent",
+    color: "#000",
+    border: "2px solid #000",
+    borderRadius: "25px",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
+    marginTop: "4rem", // Increase marginTop to move the button down
+  };
+
+  const buttonHoverStyle = {
+    backgroundColor: "#000",
+    color: "#fff",
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center gap-4 min-h-screen">
-      <h1 className="text-4xl font-bold">Review slides effortlessly</h1>
-      <p className="max-w-200px"> Our solution generates a Khan Academy style video using any pdf (such as your lecture notes, or slides), allowing you to easily review or learn content.</p>
-      <Button onClick={() => {router.push("/application")}}>Start</Button>
+    <div style={containerStyle}>
+      <h1 style={headingStyle} className="text-4xl font-bold">
+        First Mile Learning
+      </h1>
+      <p style={descriptionStyle} className="max-w-200px">
+        {descriptionText}
+      </p>
+      <Button
+        style={buttonStyle}
+        onMouseEnter={(e) => e.target.classList.add("hovered")}
+        onMouseLeave={(e) => e.target.classList.remove("hovered")}
+        onClick={() => router.push("/application")}
+      >
+        Start
+      </Button>
+      <DynamicParticlesBg type="circle" bg={true} />
+      <style jsx global>
+        {`
+          .hovered {
+            background-color: #000 !important;
+            color: #fff !important;
+          }
+          .button {
+            background-color: transparent !important;
+            color: #000 !important;
+            border: 2px solid #000 !important;
+          }
+        `}
+      </style>
     </div>
   );
 }
