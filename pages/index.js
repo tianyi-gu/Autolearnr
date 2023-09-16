@@ -13,12 +13,9 @@ export default function Home() {
             if (!file) {
                 throw new Error("Please upload a file");
             }
-
             setLoading(true);
-
             const formData = new FormData();
             formData.append("pdf", file);
-
             const uploadResponse = await fetch("/api/uploadpdf", {
                 method: "POST",
                 body: formData,
@@ -28,29 +25,24 @@ export default function Home() {
                     `API call failed with status ${uploadResponse.status}`
                 );
             }
-
             const pdfParseResponse = await fetch("/api/pdfparse", {
                 method: "POST",
             });
-
             if (pdfParseResponse.status !== 200) {
                 throw new Error(
                     `API call to pdfparse failed with status ${pdfParseResponse.status}`
                 );
             }
-
-            console.log("Parth Response");
             const pdfParseData = await pdfParseResponse.json();
-            console.log(pdfParseData.txt);
-            const updatedText = pdfParseData.txt; // Store the updated text in a variable
-            setText(updatedText); // Update the state
+            const updatedText = pdfParseData.txt; 
+            setText(updatedText); 
 
             const generateResponse = await fetch("/api/generate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ textInput: updatedText }), // Use the updated text here
+                body: JSON.stringify({ textInput: updatedText }), 
             });
 
             if (generateResponse.status !== 200) {
@@ -61,40 +53,33 @@ export default function Home() {
 
             const generateData = await generateResponse.json();
             setResult(generateData);
-            console.log(generateData);
             const audioResponse = await fetch("/api/synthesizeAudio", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ script: generateData }),
+                body: JSON.stringify({ script: generateData, fileName: "output.mp3" }),
             });
-            console.log("test");
             const audio = new Audio("/audio/output.mp3");
-
             audio.addEventListener("loadedmetadata", () => {
                 const durationInSeconds = audio.duration;
-                console.log(`Audio duration: ${durationInSeconds}`);
                 audio.play();
             });
-
             if (audioResponse.status === 200) {
                 const audioData = await audioResponse.json();
-                console.log("Audio data:", audioData);
                 setResult("Audio generated successfully");
             } else {
                 throw new Error(
                     `API call to synthesizeAudio failed with status ${audioResponse.status}`
                 );
             }
-
             setRes("Success");
         } catch (error) {
             console.error(error);
             setRes(error.message);
         } finally {
             setLoading(false);
-            console.log("Finished!");
+            console.log("Finished!")
         }
     };
 
