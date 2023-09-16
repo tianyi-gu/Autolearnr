@@ -23,7 +23,6 @@ export default function Home() {
                 method: "POST",
                 body: formData,
             });
-
             if (uploadResponse.status !== 200) {
                 throw new Error(
                     `API call failed with status ${uploadResponse.status}`
@@ -40,15 +39,18 @@ export default function Home() {
                 );
             }
 
+            console.log("Parth Response");
             const pdfParseData = await pdfParseResponse.json();
-            setText(pdfParseData.txt);
+            console.log(pdfParseData.txt);
+            const updatedText = pdfParseData.txt; // Store the updated text in a variable
+            setText(updatedText); // Update the state
 
             const generateResponse = await fetch("/api/generate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ textInput: text }),
+                body: JSON.stringify({ textInput: updatedText }), // Use the updated text here
             });
 
             if (generateResponse.status !== 200) {
@@ -66,6 +68,14 @@ export default function Home() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ script: generateData }),
+            });
+            console.log("test");
+            const audio = new Audio("/audio/output.mp3");
+
+            audio.addEventListener("loadedmetadata", () => {
+                const durationInSeconds = audio.duration;
+                console.log(`Audio duration: ${durationInSeconds}`);
+                audio.play();
             });
 
             if (audioResponse.status === 200) {
@@ -111,7 +121,6 @@ export default function Home() {
                                     }
                                     className="border border-gray-300 rounded-md p-2 block"
                                 />
-                                <p>Result: {res}</p>
                                 <button
                                     onClick={handleUpload}
                                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
