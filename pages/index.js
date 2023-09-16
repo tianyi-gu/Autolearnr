@@ -8,6 +8,7 @@ export default function Home() {
   
   const onSubmit = async (e) => {
     e.preventDefault()
+    setFile(e.target.files?.[0])
     const formData = new FormData()
     try {
       if (!file) {
