@@ -1,49 +1,53 @@
 [
     {
         "name": "part1",
-        "title": "What is Philosophy?",
-        "bulletPoints": [
-            "Philosophy is all of rational inquiry except for science.",
-            "Philosophers inquire into areas such as metaphysics, epistemology, and ethics.",
-            "Questions about the limits of human inquiry and knowledge are philosophical questions"
+        "title": "What is philosophy?",
+        "bulletPoint": [
+            "Philosophy is all of rational inquiry except for science",
+            "Questions about the limits of human inquiry and knowledge are philosophical questions",
+            "Philosophical issues fall into three big topic areas: metaphysics, epistemology, and ethics"
         ],
-        "script": "Let's start with a simple question: What is philosophy? Philosophy, in essence, is all of rational inquiry except for science. It's a field that delves deep into areas such as metaphysics, epistemology, and ethics. It's about asking questions, particularly those about the limits of human inquiry and knowledge. It's about seeking answers, even when they seem elusive."
+        "script": "What is philosophy? Many answers have been offered, but my favorite answer is that philosophy is all of rational inquiry except for science. Questions about the limits of human inquiry and knowledge are philosophical questions."
     },
     {
         "name": "part2",
         "title": "Metaphysics",
-        "bulletPoints": [
-            "Metaphysical issues are concerned with the nature of reality.",
-            "These issues include the existence of God, the nature of human free will, the structure of space and time, and the existence of entities beyond physical objects."
+        "bulletPoint": [
+            "Concerned with the nature of reality",
+            "Addresses questions about the existence of God, human free will, the nature of a thing, space and time, dimensions of the world, etc.",
+            "Attempts to establish systematic metaphysical world views have been unsuccessful"
         ],
-        "script": "Moving on to metaphysics, a branch of philosophy that deals with the fundamental nature of reality. It's about asking questions that go beyond the physical. Does God exist? What is the nature of human free will? How is space and time structured? Are there entities beyond physical objects? These are the kind of questions that metaphysics grapples with."
+        "script": "Metaphysics is concerned with the nature of reality. Epistemology is concerned with the nature of knowledge and justified belief. Ethics is concerned with what we ought to do, how we ought to live, and how we ought to organize our communities."
     },
     {
         "name": "part3",
         "title": "Epistemology",
-        "bulletPoints": [
-            "Epistemology is concerned with the nature of knowledge and justified belief.",
-            "It involves evaluating the certainty and rational justification of our beliefs."
+        "bulletPoint": [
+            "Concerned with the nature of knowledge and justified belief",
+            "Questions whether we can have knowledge and to what extent",
+            "Includes skepticism and the rational justification of beliefs"
         ],
-        "script": "Next, we have epistemology. This branch of philosophy is concerned with the nature of knowledge and justified belief. It's about evaluating the certainty and rational justification of our beliefs. It's about asking questions like: What is knowledge? How do we know what we know? How can we justify our beliefs?"
+        "script": "Philosophy aims at knowledge and understanding. It opens our minds to new possibilities and reveals why some initial answers to philosophical questions may be problematic. Philosophy frees us from narrow-minded thinking and helps us question conventional opinions. It keeps alive our sense of wonder."
     },
     {
         "name": "part4",
         "title": "Ethics",
-        "bulletPoints": [
-            "Ethics is concerned with what we ought to do, how we ought to live, and how we ought to organize our communities.",
-            "It deals with moral questions and strives for rational inquiry into these matters."
+        "bulletPoint": [
+            "Concerned with what we ought to do, how we ought to live, and how we ought to organize our communities",
+            "Contrasts with religious and moral relativist views that ignore rational inquiry into morality",
+            "Philosophy aims to discover answers to moral questions"
         ],
-        "script": "Then, there's ethics. This branch of philosophy is concerned with what we ought to do, how we ought to live, and how we ought to organize our communities. It's about dealing with moral questions and striving for rational inquiry into these matters. It's about asking questions like: What is right and wrong? How should we live our lives? How should we structure our societies?"
+        "script": "The value of philosophy lies in its uncertainty. Philosophy suggests many possibilities and removes dogmatism. It liberates us from common sense and expands our knowledge."
     },
     {
         "name": "part5",
         "title": "The Value of Philosophy",
-        "bulletPoints": [
-            "Philosophy aims at knowledge and understanding.",
-            "It can liberate us from narrow-minded conventional thinking and open our minds to new possibilities.",
-            "Even if definitive answers can't be found, philosophy still enables us to explore various possibilities and expand our knowledge."
+        "bulletPoint": [
+            "Philosophy loosens the grip of uncritically held opinions and opens the mind to new possibilities",
+            "Philosophy increases knowledge as to what things may be and removes dogmatism",
+            "Philosophy frustrates the desire for quick easy answers and fosters inquiry and wonder",
+            "Even if philosophy can't settle an issue, there may still be a right answer"
         ],
-        "script": "Finally, let's talk about the value of philosophy. Philosophy aims at knowledge and understanding. It can liberate us from narrow-minded conventional thinking and open our minds to new possibilities. Even if definitive answers can't be found, philosophy still enables us to explore various possibilities and expand our knowledge. It's about asking questions, seeking answers, and expanding our understanding of the world around us."
+        "script": "Some philosophical questions are unanswerable, but that doesn't mean there is no right answer. It just means we may not be able to figure it out. Understanding can still be advanced even when definitive knowledge cannot be obtained."
     }
 ]

@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
-import fs from "fs";
+
 dotenv.config();
 
 const openai = new OpenAI({
@@ -12,7 +12,6 @@ export default async function handler(req, res) {
         try {
             const { textInput: input } = req.body;
 
-            //Script Generation
             const chatCompletion = await openai.chat.completions.create({
                 model: "gpt-3.5-turbo-16k",
                 temperature: 1.2,
@@ -45,7 +44,6 @@ export default async function handler(req, res) {
                 response.choices[0].message.content
             );
 
-            // Process the JSON data directly
             const titles = responseJSON.map((entry) => entry.title);
             const bulletPoints = responseJSON.map(
                 (entry) => entry.bulletPoints
@@ -54,7 +52,6 @@ export default async function handler(req, res) {
             console.log("Titles:", titles);
             console.log("Bullet Points:", bulletPoints);
 
-            // Split script into chunks based on main points
             response = await openai.chat.completions.create({
                 temperature: 0,
                 model: "gpt-3.5-turbo-16k",
@@ -70,22 +67,22 @@ export default async function handler(req, res) {
                 ],
             });
 
-            //splitScript is the final script that is split into parts
             const splitScriptArray = JSON.parse(
                 response.choices[0].message.content
             );
-            let data = [];
+
+            console.log(splitScriptArray);
             for (let i = 0; i < splitScriptArray.length; i++) {
-                data.push({
+                audioChunks.push({
                     name: `part${i + 1}`,
                     title: titles[i],
                     bulletPoint: bulletPoints[i],
                     script: splitScriptArray[i],
                 });
             }
-            const dataJson = JSON.stringify(data);
+            const dataJson = JSON.stringify(audioChunks);
+            //console.log(dataJson);
 
-            // Write the JSON array to a JSON file
             const jsonFilePath = "skeletonData.json";
             fs.writeFileSync(jsonFilePath, dataJson, "utf-8");
             response = await openai.chat.completions.create({
@@ -95,7 +92,7 @@ export default async function handler(req, res) {
                 messages: [
                     {
                         role: "system",
-                        content: `You will be given a string array to generate a multiple-choice question based on each string element script in a string array.(VERY VERY VERY IMPORTANT: THERE MUST BE ONE QUESTION PER MAIN POINT).\n Each question should be formatted as an object in a JSON array with the following properties: "question," "choices" choices is an object array with a length of 4 and question is a string the answer MUST BE ACCURATE.  (The string in choices should be in the format of {answerText:"A. ----", isCorrect: boolean depending on whether it is the answer} or {answerText"B. ----", isCorrect: boolean depending on whether it is the answer}.... all the way to D.--- (NOTE: make the position of the correct answer randomized so that the correct answer's index is different))`,
+                        content: `You will be given a string array to generate a multiple-choice question based on each string element script in a string array.(VERY VERY VERY IMPORTANT: THERE MUST BE ONE QUESTION PER MAIN POINT).\n Each question should be formatted as an object in a JSON array with the following properties: "questionText," "answerOptions" answerOptions is an object array with a length of 4 and questionText is a string the answer MUST BE ACCURATE.  (The string in choices should be in the format of {answerText:"A. ----", isCorrect: boolean depending on whether it is the answer} or {answerText"B. ----", isCorrect: boolean depending on whether it is the answer}.... all the way to D.--- (NOTE: make the position of the correct answer randomized so that the correct answer's index is different))`,
                     },
                     { role: "user", content: `${splitScriptArray}` },
                 ],

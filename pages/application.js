@@ -1,8 +1,9 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "components/ui/button";
+import ChatWidget  from "../components/ChatWidget";
 import Modal from "../components/Modal";
-import { PencilOutline, CloseOutilne } from 'react-ionicons';
+import { PencilOutline, CloseOutline } from 'react-ionicons';
 
 const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
   ssr: false,

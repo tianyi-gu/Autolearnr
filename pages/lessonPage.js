@@ -21,13 +21,13 @@ export default function LessonPage() {
     useEffect(() => {
         if (audioDuration !== null) {
             console.log("interval started!")
-            if (currentElementIndex < data[currentPage].bulletPoints.length) {
+            if (currentElementIndex < data[currentPage].bulletPoint.length) {
                 setNeedNewAudio(false);
-                
+
                 // Automatically advance to the next element when the element duration elapses
                 const intervalId = setTimeout(() => {
                     setCurrentElementIndex((prevIndex) => prevIndex + 1);
-                }, audioDuration * 1000 / (data[currentPage].bulletPoints.length));
+                }, audioDuration * 1000 / (data[currentPage].bulletPoint.length));
 
                 // Clean up the interval when the component unmounts or when the element changes
                 return () => {
@@ -36,11 +36,13 @@ export default function LessonPage() {
             } else {
                 // If all elements have been displayed, move to the next page
                 if (currentPage < data.length - 1) {
-                    setAudioPath(`/audio/${data[currentPage + 1].name}.mp3`);
-                    setCurrentElementIndex(0);
-                    setCurrentPage((prevPage) => prevPage + 1);
-                    setAudioDuration(null); // Reset audio duration for the new audio
-                    setNeedNewAudio(true);
+                    setTimeout(() => {
+                        setAudioPath(`/audio/${data[currentPage + 1].name}.mp3`);
+                        setCurrentElementIndex(0);
+                        setCurrentPage((prevPage) => prevPage + 1);
+                        setAudioDuration(null); // Reset audio duration for the new audio
+                        setNeedNewAudio(true);
+                    }, audioDuration * 1000 / (data[currentPage].bulletPoint.length + 1));
                 }
             }
         }
@@ -51,11 +53,11 @@ export default function LessonPage() {
 
     return (
         <div>
-            <h2>{data[currentPage]?.title}</h2>
+            <h2 style={{ fontSize: '36px' }}><b>{data[currentPage]?.title}</b></h2>
             <div>
                 <ul>
-                    {data[currentPage].bulletPoints
-                        ?.slice(0, currentElementIndex + 1)
+                    {data[currentPage].bulletPoint
+                        ?.slice(0, currentElementIndex)
                         .map((expression, index) => (
                             <li key={index}>{expression}</li>
                         ))}

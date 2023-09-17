@@ -1,0 +1,128 @@
+[
+  {
+    "questionText": "What is philosophy?",
+    "answerOptions": [
+      {
+        "answerText": "A. The study of rational inquiry",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. The study of science",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. The study of metaphysics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. All of rational inquiry except for science",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionText": "What is metaphysics?",
+    "answerOptions": [
+      {
+        "answerText": "A. The study of reality",
+        "isCorrect": true
+      },
+      {
+        "answerText": "B. The study of knowledge and justified belief",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. The study of ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The study of human inquiry and knowledge",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What is epistemology?",
+    "answerOptions": [
+      {
+        "answerText": "A. The study of reality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. The study of knowledge and justified belief",
+        "isCorrect": true
+      },
+      {
+        "answerText": "C. The study of ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The study of human inquiry and knowledge",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What is ethics?",
+    "answerOptions": [
+      {
+        "answerText": "A. The study of reality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. The study of knowledge and justified belief",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. The study of what we ought to do and how we ought to live",
+        "isCorrect": true
+      },
+      {
+        "answerText": "D. The study of human inquiry and knowledge",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What is the value of philosophy?",
+    "answerOptions": [
+      {
+        "answerText": "A. It provides definitive answers to all questions",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. It removes dogmatism and expands knowledge",
+        "isCorrect": true
+      },
+      {
+        "answerText": "C. It limits human inquiry and knowledge",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. It keeps us narrow-minded and conventional",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "Can unanswerable philosophical questions still contribute to understanding?",
+    "answerOptions": [
+      {
+        "answerText": "A. No, unanswerable questions have no value",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. Yes, understanding can still be advanced",
+        "isCorrect": true
+      },
+      {
+        "answerText": "C. Unanswerable questions have no right answer",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. Unanswerable questions are a waste of time",
+        "isCorrect": false
+      }
+    ]
+  }
+]

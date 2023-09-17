@@ -1,6 +1,7 @@
 import { Button } from "components/ui/button";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import { PlayCircleOutine } from 'react-ionicons';
 
  // Set this to false to only render on the client side, it seems to fix a window error thingy
 const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
@@ -36,7 +37,7 @@ export default function Home() {
   };
 
   const descriptionText =
-    "Your one-stop shop for dynamic and educational content! First Mile Learning revolutionizes the way you learn by providing interactive, engaging, teacher-like educational resources.";
+    "Your one-stop shop for dynamic and educational content! Autolearnr revolutionizes the way you learn by providing interactive, engaging, teacher-like educational resources.";
 
   const buttonStyle = {
     fontSize: "2rem",
