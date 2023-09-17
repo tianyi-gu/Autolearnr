@@ -31,10 +31,6 @@ export default async function handler(req, res) {
       });
 
       const script = chatCompletion.choices[0].message.content;
-      //console.log(script);
-
-
-      //Skeleton Notes Generation
       let response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-16k",
         temperature: 0,
@@ -70,13 +66,10 @@ export default async function handler(req, res) {
       }
 
       const numberOfPoints = mainPoints.length;
-      //console.log(numberOfPoints);
-
-
-        // Recombine main points into a string for prompting
       const mainPointsString = mainPoints.reduce((acc, curr, index) => {
         return acc + `${index + 1}. ${curr} `;
       }, "");
+      //console.log(mainPointsString);
 
 
         // Split script into chunks based on main points
@@ -103,7 +96,7 @@ export default async function handler(req, res) {
         }
       }
       const dataJson = JSON.stringify(data);
-      console.log(dataJson);
+      //console.log(dataJson);
 
       // Write the JSON array to a JSON file
       const jsonFilePath = "skeletonNotes.json";
@@ -114,7 +107,6 @@ export default async function handler(req, res) {
       res.status(500).send("Internal Server Error");
     }
   } else {
-    console.log("Received a non-POST request to /api/openAI");
     res.status(405).end();
   }
 }
