@@ -101,7 +101,7 @@ export default async function handler(req, res) {
       // Write the JSON array to a JSON file
       const jsonFilePath = "skeletonNotes.json";
       fs.writeFileSync(jsonFilePath, dataJson, "utf-8");
-      res.status(200).json(dataJson);
+      res.status(200).json(data);
     } catch (error) {
       console.error("Error:", error);
       res.status(500).send("Internal Server Error");
