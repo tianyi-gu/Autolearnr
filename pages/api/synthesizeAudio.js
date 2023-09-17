@@ -3,7 +3,7 @@ import fs from "fs";
 import util from "util";
 
 export default async function handler(req, res) {
-    console.log("test");
+    //console.log("test");
     if (req.method === "POST") {
         try {
             const { script, fileName } = req.body;
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
             const [response] = await client.synthesizeSpeech(request);
             const writeFile = util.promisify(fs.writeFile);
             await writeFile(outputFile, response.audioContent, "binary");
-            console.log("alright alright alright");
+            //console.log("alright alright alright");
             res.status(200).send("Audio generated successfully.");
         } catch (error) {
             console.error("Error:", error);
