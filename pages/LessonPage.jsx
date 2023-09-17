@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 
 const LessonPage = () => {
+    // console.log(skeletonData)
     return (
         <div>
-            {/* <SkeletonNotes data={skeletonData} /> */}
-            <h2>Hi</h2>
+            <SkeletonNotes data={skeletonData} />
         </div>
     );
 };

@@ -5,18 +5,13 @@ const SkeletonNotes = ({ data }) => {
   const [currentElementIndex, setCurrentElementIndex] = useState(0);
 
   useEffect(() => {
-    const page = data[currentPage];
 
-    const ulElement = page.xml.props.children.find((child) => child.type === 'ul');
-    const listItems = ulElement.props.children.filter((child) => child.type === 'li');
+    // console.log("current page: " + currentPage + "| current element: " + currentElementIndex)
 
-    console.log("current page: " + currentPage + "|current element: " + currentElementIndex)
-
-    if (currentElementIndex < listItems.length + 1) {
-      // Display the next list item
+    if (currentElementIndex < data[currentPage]["bulletPoints"].length + 1) {
       setTimeout(() => {
         setCurrentElementIndex((prevIndex) => prevIndex + 1);
-      }, page.timestamp / listItems.length);
+      }, 1000);
     } else {
       if(currentPage < data.length - 1){
         setCurrentElementIndex(0);
@@ -27,15 +22,13 @@ const SkeletonNotes = ({ data }) => {
 
   return (
     <div>
-      {data[currentPage]?.xml?.props?.children[0]?.props?.children && (
-        <h2>{data[currentPage].xml.props.children[0].props.children}</h2>
-      )}
+        <h2>{data[currentPage]?.title}</h2>
       <div>
         <ul>
-          {data[currentPage]?.xml?.props?.children[1]?.props?.children
+          {data[currentPage].bulletPoints
             ?.slice(0, currentElementIndex)
-            .map((li, index) => (
-              <li key={index}>{li.props.children}</li>
+            .map((expression, index) => (
+              <li key={index}>{expression}</li>
             ))}
         </ul>
       </div>
