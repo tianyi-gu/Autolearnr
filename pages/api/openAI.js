@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
-import fs from "fs";
+
 dotenv.config();
 
 const openai = new OpenAI({
@@ -85,15 +85,20 @@ export default async function handler(req, res) {
             //splitScript is the final script that is split into parts
             const splitScriptArray = JSON.parse(response.choices[0].message.content)
             console.log(splitScriptArray)
-            let data = [];
+            let audioChunks = [];
             for (let i = 0; i < splitScriptArray.length; i++) {
-                data.push({
+                audioChunks.push({
                     name: `part${i + 1}`,
                     points: mainPoints[i],
                     script: splitScriptArray[i],
                 });
             }
+            //TODO: generate openAI embeddings from input text
+            
+
+            const data = {audioChunks, embeddings}
             const dataJson = JSON.stringify(data);
+
             //console.log(dataJson);
 
             // Write the JSON array to a JSON file

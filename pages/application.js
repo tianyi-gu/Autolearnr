@@ -1,6 +1,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "components/ui/button";
+import ChatWidget  from "../components/ChatWidget";
 
 const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
   ssr: false, // Set this to false to only render on the client side
@@ -166,6 +167,7 @@ export default function Home() {
             Upload
           </Button>
           <DynamicParticlesBg type="square" bg={true} />
+            <ChatWidget/>
           <style jsx global>
             {`
               .hovered {
