@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 
 const LessonPage = () => {
-    // console.log(skeletonData)
     return (
         <div>
             <SkeletonNotes data={skeletonData} />
