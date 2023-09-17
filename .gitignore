@@ -41,11 +41,4 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 test.txt
-public/audio/output_out_5.mp3
-public/audio/output_out_6.mp3
-public/audio/output_out_7.mp3
-public/audio/part1.mp3
-public/audio/part2.mp3
-public/audio/part3.mp3
-public/audio/part4.mp3
 uploads/uploadedfile
