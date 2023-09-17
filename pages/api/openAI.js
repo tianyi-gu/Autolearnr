@@ -12,7 +12,6 @@ export default async function handler(req, res) {
         try {
             const { textInput: input } = req.body;
 
-            //Script Generation
             const chatCompletion = await openai.chat.completions.create({
                 model: "gpt-3.5-turbo-16k",
                 temperature: 1.2,
@@ -45,7 +44,6 @@ export default async function handler(req, res) {
                 response.choices[0].message.content
             );
 
-            // Process the JSON data directly
             const titles = responseJSON.map((entry) => entry.title);
             const bulletPoints = responseJSON.map(
                 (entry) => entry.bulletPoints
@@ -54,7 +52,6 @@ export default async function handler(req, res) {
             console.log("Titles:", titles);
             console.log("Bullet Points:", bulletPoints);
 
-            // Split script into chunks based on main points
             response = await openai.chat.completions.create({
                 temperature: 0,
                 model: "gpt-3.5-turbo-16k",
@@ -70,7 +67,6 @@ export default async function handler(req, res) {
                 ],
             });
 
-            //splitScript is the final script that is split into parts
             const splitScriptArray = JSON.parse(
                 response.choices[0].message.content
             );
@@ -86,7 +82,6 @@ export default async function handler(req, res) {
             }
             const dataJson = JSON.stringify(data);
 
-            // Write the JSON array to a JSON file
             const jsonFilePath = "skeletonData.json";
             fs.writeFileSync(jsonFilePath, dataJson, "utf-8");
             response = await openai.chat.completions.create({
