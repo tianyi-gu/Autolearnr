@@ -21,13 +21,6 @@ const AudioPlayer = ({ src, parentCallback, play }) => {
         audio.play();
       }
     }
-
-    // return () => {
-    //   // Ensure that the audio object exists before calling pause
-    //   if (audio) {
-    //     audio.pause();
-    //   }
-    // };
   }, [src, parentCallback]);
 
   return null;

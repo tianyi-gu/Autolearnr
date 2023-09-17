@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import skeletonData from "../skeletonData.json";
 import { useRouter } from "next/router";
 import AudioPlayer from "./AudioPlayer";
+import dynamic from "next/dynamic";
+import Modal from "../components/Modal";
+import { Button } from "components/ui/button";
+import { PencilOutline, CloseOutline } from "react-ionicons";
+import ChatWidget from "../components/ChatWidget";
+
+const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
+    ssr: false,
+});
 
 export default function LessonPage() {
+    const [modalOpen, setModalOpen] = useState(false);
     const data = skeletonData;
     const router = useRouter();
     const [currentPage, setCurrentPage] = useState(0);
@@ -101,17 +111,50 @@ export default function LessonPage() {
     console.log("Page Number:", currentPage);
     console.log("Page Duration:", audioDuration);
 
+    const listItemStyle ={
+        marginBottom: "25px",
+        fontFamily: "Times New Roman",
+    };
+    const modalStyle = {
+        width: "80px",
+        height: "80px",
+        borderRadius: "50%",
+        backgroundColor: "white",
+        border: "2 px solid black",
+        color: "black",
+        cursor: "pointer",
+        position: "fixed",
+        bottom: "45px",
+        left: "45px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    };
+    const backButtonStyle = {
+        position: "absolute",
+        top: "20px",
+        right: "20px",
+        cursor: "pointer",
+        fontSize: "35px",
+      };
+      const goBack = () => {
+        router.push("/");
+      };
+    
     return (
-        <div>
+        <div style={{ textAlign: "center", padding: "20px"}}>
             <h2 style={{ fontSize: "36px" }}>
-                <b>{data[currentPage]?.title}</b>
+                <b>Generated Notes</b>
+            </h2>
+            <h2 style={{ fontSize: "24px" }}>
+                <b style={{ fontFamily: "Times New Roman"}}>{data[currentPage]?.title}</b>
             </h2>
             <div>
                 <ul>
                     {data[currentPage].bulletPoint
                         ?.slice(0, currentElementIndex)
                         .map((expression, index) => (
-                            <li key={index}>{expression}</li>
+                            <li key={index} style={listItemStyle}>{expression}</li>
                         ))}
                 </ul>
             </div>
@@ -120,8 +163,29 @@ export default function LessonPage() {
                     src={audioPath}
                     play={needNewAudio}
                     parentCallback={handleAudioDuration}
+                    style={{ marginTop: "20px"}}
                 />
             )}
+            <DynamicParticlesBg type="square" bg = {true}/>
+            <span style={backButtonStyle} onClick={goBack}>
+                &#8592;
+            </span>
+            <Button
+                        style={modalStyle}
+                        onClick={() => {
+                            setModalOpen(true);
+                        }}
+                    >
+                        <PencilOutline
+                            color={"#00000"}
+                            title={""}
+                            height="40px"
+                            width="40px"
+                        />
+                    </Button>
+                    <ChatWidget style={modalStyle} />
+
+                    {modalOpen && <Modal setOpenModal={setModalOpen} />}
         </div>
     );
 }

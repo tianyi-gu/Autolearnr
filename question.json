@@ -1,64 +1,106 @@
 [
   {
-    "questionText": "According to the author, what is philosophy?",
+    "questionText": "What does philosophy address?",
     "answerOptions": [
       {
-        "answerText": "A. All of rational inquiry except for science",
-        "isCorrect": true
-      },
-      {
-        "answerText": "B. The study of metaphysics, epistemology, and ethics",
+        "answerText": "A. Questions about the nature of reality",
         "isCorrect": false
       },
       {
-        "answerText": "C. The study of scientific issues",
+        "answerText": "B. Questions about the nature of knowledge and justified belief",
         "isCorrect": false
       },
       {
-        "answerText": "D. The study of human inquiry and knowledge",
-        "isCorrect": false
-      }
-    ]
-  },
-  {
-    "questionText": "What branch of science addresses the question of whether or not science covers all of rational inquiry?",
-    "answerOptions": [
-      {
-        "answerText": "A. Metaphysics",
+        "answerText": "C. Questions about how we should live and organize our communities",
         "isCorrect": false
       },
       {
-        "answerText": "B. Epistemology",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. Ethics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. None of the above",
+        "answerText": "D. All of the above",
         "isCorrect": true
       }
     ]
   },
   {
-    "questionText": "Which of the following is NOT a big topic area in philosophy?",
+    "questionText": "What are the three main branches of philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. Metaphysics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. Epistemology",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. Ethics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. Science",
+        "answerText": "A. Metaphysics, epistemology, and ethics",
         "isCorrect": true
+      },
+      {
+        "answerText": "B. Metaphysics, logic, and aesthetics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. Epistemology, ethics, and aesthetics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. Logic, ethics, and aesthetics",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "Why is philosophical inquiry valuable?",
+    "answerOptions": [
+      {
+        "answerText": "A. It provides definitive answers to fundamental questions",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. It challenges conventional thinking and encourages critical thinking",
+        "isCorrect": true
+      },
+      {
+        "answerText": "C. It helps us question our own beliefs and prejudices",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. All of the above",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What skills can philosophy help develop?",
+    "answerOptions": [
+      {
+        "answerText": "A. Logical reasoning, problem-solving, and effective communication",
+        "isCorrect": true
+      },
+      {
+        "answerText": "B. Scientific experimentation, data analysis, and technical skills",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. Artistic creativity, emotional intelligence, and social skills",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. Physical strength, agility, and coordination",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What is the value of philosophy?",
+    "answerOptions": [
+      {
+        "answerText": "A. It provides definitive answers to fundamental questions",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. It expands our understanding and promotes intellectual growth",
+        "isCorrect": true
+      },
+      {
+        "answerText": "C. It encourages a more thoughtful and reflective approach to life",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. All of the above",
+        "isCorrect": false
       }
     ]
   }
