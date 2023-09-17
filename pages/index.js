@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   const descriptionText =
-    "Your one-stop shop for dynamic and educational content! First Mile Learning revolutionizes the way you learn by providing interactive, engaging, teacher-like educational resources.";
+    "Your one-stop shop for dynamic and educational content! Autolearnr revolutionizes the way you learn by providing interactive, engaging, teacher-like educational resources.";
 
   const buttonStyle = {
     fontSize: "2rem",

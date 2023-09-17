@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 import { CloseOutline } from 'react-ionicons';
+import questions from '../question.json'
 
 function Modal({ setOpenModal }) {
-
-const questions = [
-    {
-        questionText: "What is the capital of France?",
-        answerOptions: [
-        { answerText: "London", isCorrect: false },
-        { answerText: "Berlin", isCorrect: false },
-        { answerText: "Paris", isCorrect: true },
-        { answerText: "Madrid", isCorrect: false },
-        ],
-    },
-    {
-        questionText: "Which planet is known as the Red Planet?",
-        answerOptions: [
-        { answerText: "Mars", isCorrect: true },
-        { answerText: "Earth", isCorrect: false },
-        { answerText: "Venus", isCorrect: false },
-        { answerText: "Jupiter", isCorrect: false },
-        ],
-    },
-
-];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);

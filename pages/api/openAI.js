@@ -75,6 +75,7 @@ export default async function handler(req, res) {
                 response.choices[0].message.content
             );
             let data = [];
+            console.log(splitScriptArray);
             for (let i = 0; i < splitScriptArray.length; i++) {
                 data.push({
                     name: `part${i + 1}`,
@@ -95,7 +96,7 @@ export default async function handler(req, res) {
                 messages: [
                     {
                         role: "system",
-                        content: `You will be given a string array to generate a multiple-choice question based on each string element script in a string array.(VERY VERY VERY IMPORTANT: THERE MUST BE ONE QUESTION PER MAIN POINT).\n Each question should be formatted as an object in a JSON array with the following properties: "question," "choices" choices is an object array with a length of 4 and question is a string the answer MUST BE ACCURATE.  (The string in choices should be in the format of {answerText:"A. ----", isCorrect: boolean depending on whether it is the answer} or {answerText"B. ----", isCorrect: boolean depending on whether it is the answer}.... all the way to D.--- (NOTE: make the position of the correct answer randomized so that the correct answer's index is different))`,
+                        content: `You will be given a string array to generate a multiple-choice question based on each string element script in a string array.(VERY VERY VERY IMPORTANT: THERE MUST BE ONE QUESTION PER MAIN POINT).\n Each question should be formatted as an object in a JSON array with the following properties: "questionText," "answerOptions" answerOptions is an object array with a length of 4 and questionText is a string the answer MUST BE ACCURATE.  (The string in choices should be in the format of {answerText:"A. ----", isCorrect: boolean depending on whether it is the answer} or {answerText"B. ----", isCorrect: boolean depending on whether it is the answer}.... all the way to D.--- (NOTE: make the position of the correct answer randomized so that the correct answer's index is different))`,
                     },
                     { role: "user", content: `${splitScriptArray}` },
                 ],
