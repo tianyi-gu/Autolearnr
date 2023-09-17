@@ -40,15 +40,19 @@ export default async function handler(req, res) {
                     { role: "user", content: input },
                 ],
             });
-            
-            const responseJSON = JSON.parse(response.choices[0].message.content);
-            
+
+            const responseJSON = JSON.parse(
+                response.choices[0].message.content
+            );
+
             // Process the JSON data directly
             const titles = responseJSON.map((entry) => entry.title);
-            const bulletPoints = responseJSON.map((entry) => entry.bulletPoints);
-            
+            const bulletPoints = responseJSON.map(
+                (entry) => entry.bulletPoints
+            );
+
             console.log("Titles:", titles);
-            console.log("Bullet Points:", bulletPoints);            
+            console.log("Bullet Points:", bulletPoints);
 
             // Split script into chunks based on main points
             response = await openai.chat.completions.create({
@@ -61,8 +65,7 @@ export default async function handler(req, res) {
                     },
                     {
                         role: "user",
-                        content:
-                            script,
+                        content: script,
                     },
                 ],
             });
@@ -83,7 +86,7 @@ export default async function handler(req, res) {
             const dataJson = JSON.stringify(data);
 
             // Write the JSON array to a JSON file
-            const jsonFilePath = "skeletonNotes.json";
+            const jsonFilePath = "skeletonData.json";
             fs.writeFileSync(jsonFilePath, dataJson, "utf-8");
             response = await openai.chat.completions.create({
                 temperature: 0,

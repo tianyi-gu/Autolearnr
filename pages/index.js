@@ -2,6 +2,7 @@ import { Button } from "components/ui/button";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
+ // Set this to false to only render on the client side, it seems to fix a window error thingy
 const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
   ssr: false, 
 });
@@ -39,7 +40,7 @@ export default function Home() {
 
   const buttonStyle = {
     fontSize: "2rem",
-    padding: "2rem 3rem", 
+    padding: "2rem 3rem",
     backgroundColor: "transparent",
     color: "#000",
     border: "2px solid #000",
