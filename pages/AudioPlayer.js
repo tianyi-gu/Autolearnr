@@ -1,17 +1,36 @@
-// AudioPlayer.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const AudioPlayer = ({ src }) => {
+const AudioPlayer = ({ src, parentCallback, play }) => {
+
   useEffect(() => {
-    const audio = new Audio(src);
-    audio.play();
+    console.log("received call: " + play)
+    let audio = new Audio(src);
 
-    return () => {
-      audio.pause();
-    };
-  }, [src]);
+    // Ensure the audio object is defined before adding event listeners
+    if (audio) {
+      // Event listener to capture the audio duration
+      audio.addEventListener('loadedmetadata', () => {
 
-  return null; 
+        // If a parent callback function is provided, call it with the duration
+        if (parentCallback) {
+          parentCallback(audio.duration);
+        }
+      });
+
+      if(play){
+        audio.play();
+      }
+    }
+
+    // return () => {
+    //   // Ensure that the audio object exists before calling pause
+    //   if (audio) {
+    //     audio.pause();
+    //   }
+    // };
+  }, [src, parentCallback]);
+
+  return null;
 };
 
 export default AudioPlayer;
