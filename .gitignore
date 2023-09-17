@@ -15,10 +15,15 @@
 # production
 /build
 
+
+public/audio/*
 apiKey.json
+skeletonNotes.json
 
 # misc
 .DS_Store
+question.json
+skeletonNotes.json
 .env
 apiKey.json
 

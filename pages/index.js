@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
  // Set this to false to only render on the client side, it seems to fix a window error thingy
 const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
-  ssr: false,
+  ssr: false, 
 });
 
 export default function Home() {
@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div style={containerStyle}>
       <h1 style={headingStyle} className="text-4xl font-bold">
-        First Mile Learning
+        Autolearnr
       </h1>
       <p style={descriptionStyle} className="max-w-200px">
         {descriptionText}
