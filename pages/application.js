@@ -33,6 +33,7 @@ export default function Home() {
       }
       const pdfParseResponse = await fetch("/api/pdfparse", {
         method: "POST",
+        
       });
       if (pdfParseResponse.status !== 200) {
         throw new Error(

@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
             //Script Generation
             const chatCompletion = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
+                model: "gpt-4",
                 temperature: 1.2,
                 messages: [
                     {
@@ -30,13 +30,13 @@ export default async function handler(req, res) {
 
             const script = chatCompletion.choices[0].message.content;
             let response = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo-16k",
+                model: "gpt-4",
                 messages: [
                     {
                         role: "system",
                         content:
                             "You are to be given texts of a lesson. Please return an array of <div>'s, with each entry representing a main point in the text.\
-              Each entry should contain one <h2> tag representing the title of the main point, and a <ul> containing <li>'s representing subpoints. Each array should be a string",
+              Each entry should contain one <h2> tag representing the title of the main point, and a <ul> containing <li>'s representing subpoints within the text. Each array should be a string",
                     },
                     { role: "user", content: input },
                 ],
@@ -52,35 +52,39 @@ export default async function handler(req, res) {
             while ((match = mainPointsRegex.exec(responseText))) {
                 const title = match[1].trim();
                 const content = match[2].trim();
-                const mainPoint = `<div><h2>${title}</h2>${content}</div>`
-                    .replace(/\n/g, "")
-                    .replace(/Host:/g, ""); // Remove newlines
+                const mainPoint =
+                    `<div><h2>${title}</h2>${content}</div>`.replace(/\n/g, "");
+                // Remove newlines
                 mainPoints.push(mainPoint);
             }
 
             const numberOfPoints = mainPoints.length;
+            console.log(mainPoints);
+            console.log("points: " + numberOfPoints);
             const mainPointsString = mainPoints.reduce((acc, curr, index) => {
-                return acc + `${index + 1}. ${curr} `;
+                return acc + `${index + 1}. ${curr}`;
             }, "");
             //console.log(mainPointsString);
 
             // Split script into chunks based on main points
             response = await openai.chat.completions.create({
                 temperature: 0,
-                model: "gpt-3.5-turbo-16k",
-                temperature: 0,
+                model: "gpt-4",
                 messages: [
                     {
                         role: "system",
-                        content: `Split user scripts for a video into ${numberOfPoints} parts without removing or changing any of the script. Base how you split it mostly on the seperation of the following main points - DO NOT USE THE MAIN POINTS DIRECTLY IN THE SPLIT SCRIPT. Here are the ${numberOfPoints} main points: ${mainPointsString}. Remember to seperate parts with a '|' at the end of each part - . IMPORTANT: DO NOT MODIFY THE SCRIPT IN ANY WAY - ONLY SPLIT IT INTO THE PARTS.`,
+                        content: `We are trying to seperate a script for narration of a slideshow compoesd of several main points. Here, each main point corresponds to one slide. Split a script for a video into ${numberOfPoints} parts, each corrisponding to one slide and thus one main point in the slideshow. These parts are to be read, so do not give structured output of any kind and keep the spontanity of the speech. Here are the ${numberOfPoints} main points that corelate to each part of the script, each given in html format: ${mainPointsString}. Output a JSON array of all the parts.`
                     },
-                    { role: "user", content: script },
+                    {
+                        role: "user",
+                        content: "The following is the user script to be used for the slideshow: " + script,
+                    },
                 ],
             });
 
             //splitScript is the final script that is split into parts
-            const splitScript = response.choices[0].message.content;
-            const splitScriptArray = splitScript.split("|");
+            const splitScriptArray = JSON.parse(response.choices[0].message.content)
+            console.log(splitScriptArray)
             let data = [];
             for (let i = 0; i < splitScriptArray.length; i++) {
                 data.push({
@@ -99,7 +103,7 @@ export default async function handler(req, res) {
             // console.log(splitScriptArray);
             response = await openai.chat.completions.create({
                 temperature: 0,
-                model: "gpt-3.5-turbo-16k",
+                model: "gpt-4",
                 temperature: 0,
                 messages: [
                     {
