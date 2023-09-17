@@ -63,10 +63,10 @@ export default function Home() {
 
       const generateData = JSON.parse(await generateResponse.json());
       setResult(generateData);
-     console.log(typeof generateData);
+     //console.log(typeof generateData);
      for (var i = 0; i < generateData.length; i++) {
         var obj = generateData[i];
-        console.log(obj);
+        //console.log(obj);
         if(obj.script){
             const audioResponse = await fetch("/api/synthesizeAudio", {
                 method: "POST",
@@ -82,7 +82,7 @@ export default function Home() {
             break; //TODO not sure abt this
         }
       }
-      console.log('oui oui oui').
+     // console.log('oui oui oui').
     //   const audio = new Audio("/audio/output.mp3");
     //   audio.addEventListener("loadedmetadata", () => {
     //     const durationInSeconds = audio.duration;
@@ -94,7 +94,7 @@ export default function Home() {
       setRes(error.message);
     } finally {
       setLoading(false);
-      console.log("Finished!");
+      //console.log("Finished!");
     }
   };
   const descriptionStyle = {
@@ -169,7 +169,7 @@ export default function Home() {
       ) : (
         <div>
           <h1 style={headingStyle} className="text-6xl font-bold">
-            Learn to master.
+            <i>Learn to master.</i>
           </h1>
           <form
             onSubmit={(e) => e.preventDefault()}

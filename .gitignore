@@ -22,9 +22,6 @@ skeletonNotes.json
 
 # misc
 .DS_Store
-question.json
-skeletonNotes.json
-.env
 apiKey.json
 
 uploads/uploadedfile
@@ -41,3 +38,4 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 test.txt
+uploads/uploadedfile
