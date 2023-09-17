@@ -2,12 +2,15 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "components/ui/button";
 import ChatWidget  from "../components/ChatWidget";
+import Modal from "../components/Modal";
+import { PencilOutline, CloseOutline } from 'react-ionicons';
 
 const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
-  ssr: false, // Set this to false to only render on the client side
+  ssr: false,
 });
 
 export default function Home() {
+    const [modalOpen, setModalOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [res, setRes] = useState("None");
   const [loading, setLoading] = useState(false);
@@ -61,10 +64,10 @@ export default function Home() {
 
       const generateData = JSON.parse(await generateResponse.json());
       setResult(generateData);
-     console.log(typeof generateData);
+     //console.log(typeof generateData);
      for (var i = 0; i < generateData.length; i++) {
         var obj = generateData[i];
-        console.log(obj);
+        //console.log(obj);
         if(obj.script){
             const audioResponse = await fetch("/api/synthesizeAudio", {
                 method: "POST",
@@ -80,7 +83,7 @@ export default function Home() {
             break; //TODO not sure abt this
         }
       }
-      console.log('oui oui oui').
+     // console.log('oui oui oui').
     //   const audio = new Audio("/audio/output.mp3");
     //   audio.addEventListener("loadedmetadata", () => {
     //     const durationInSeconds = audio.duration;
@@ -92,10 +95,15 @@ export default function Home() {
       setRes(error.message);
     } finally {
       setLoading(false);
-      console.log("Finished!");
+      //console.log("Finished!");
     }
   };
-
+  const descriptionStyle = {
+    fontSize: "1.5rem",
+    textAlign: "center",
+    whiteSpace: "pre-wrap",
+    maxWidth: "50rem",
+  };
   const containerStyle = {
     display: "flex",
     flexDirection: "column",
@@ -105,12 +113,13 @@ export default function Home() {
     minHeight: "100vh",
     padding: "1rem",
     marginTop: "1rem",
-    textAlign: "center", // Center the text and content
+    textAlign: "center",
   };
 
   const headingStyle = {
     fontSize: "6rem",
     paddingBottom: "2rem",
+    color: "white",
   };
 
   const inputStyle = {
@@ -118,23 +127,40 @@ export default function Home() {
     borderRadius: "5px",
     padding: "10px",
     fontSize: "1rem",
+    color: "white",
   };
 
   const buttonStyle = {
     fontSize: "1.5rem",
-    padding: "10px 20px",
+    padding: "20px 30px",
     backgroundColor: "transparent",
-    color: "#000",
-    border: "2px solid #000",
+    color: "white",
+    border: "2px solid white",
     borderRadius: "25px",
     cursor: "pointer",
     transition: "background-color 0.3s",
-    marginTop: "1rem",
+    marginTop: "5rem",
   };
 
   const buttonHoverStyle = {
     backgroundColor: "#000",
     color: "#fff",
+  };
+
+  const modalStyle = {
+    width: "80px",
+    height: "80px",
+    borderRadius: "50%",
+    backgroundColor: "white",
+    outline: "black",
+    color: "black",
+    cursor: "pointer",
+    position: "fixed",
+    bottom: "45px",
+    left: "45px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   return (
@@ -144,7 +170,7 @@ export default function Home() {
       ) : (
         <div>
           <h1 style={headingStyle} className="text-6xl font-bold">
-            Learn From Your Class Notes!
+            <i>Learn to master.</i>
           </h1>
           <form
             onSubmit={(e) => e.preventDefault()}
@@ -166,12 +192,31 @@ export default function Home() {
           >
             Upload
           </Button>
-          <DynamicParticlesBg type="square" bg={true} />
-            <ChatWidget/>
+
+
+            <Button
+            style={modalStyle}
+            onClick={() => {
+            setModalOpen(true);
+            }}
+            >
+                <PencilOutline
+                color={'#00000'} 
+                title={""}
+                height="40px"
+                width="40px"
+                />
+            </Button>
+
+            {modalOpen && <Modal setOpenModal={setModalOpen} />}
+          
+          
+          <DynamicParticlesBg type="lines" bg={true} />
           <style jsx global>
             {`
               .hovered {
-                background-color: #0050c8 !important;
+                background-color: white !important;
+                color: black !important;
               }
             `}
           </style>
