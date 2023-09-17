@@ -1,106 +1,64 @@
 [
   {
-    "questionText": "What is philosophy often defined as?",
+    "questionText": "According to the author, what is philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. All rational inquiry except for science",
+        "answerText": "A. All of rational inquiry except for science",
         "isCorrect": true
       },
       {
-        "answerText": "B. The study of metaphysics",
+        "answerText": "B. The study of metaphysics, epistemology, and ethics",
         "isCorrect": false
       },
       {
-        "answerText": "C. The exploration of ethics",
+        "answerText": "C. The study of scientific issues",
         "isCorrect": false
       },
       {
-        "answerText": "D. The investigation of epistemology",
+        "answerText": "D. The study of human inquiry and knowledge",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What are some metaphysical issues that philosophers ponder?",
+    "questionText": "What branch of science addresses the question of whether or not science covers all of rational inquiry?",
     "answerOptions": [
       {
-        "answerText": "A. The existence of God and the nature of human free will",
+        "answerText": "A. Metaphysics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. Epistemology",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. Ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. None of the above",
         "isCorrect": true
-      },
-      {
-        "answerText": "B. The laws of nature and morality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. The number of dimensions in the world",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. The existence of other minds",
-        "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is epistemology concerned with?",
+    "questionText": "Which of the following is NOT a big topic area in philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. The nature of knowledge and justified belief",
+        "answerText": "A. Metaphysics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. Epistemology",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. Ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. Science",
         "isCorrect": true
-      },
-      {
-        "answerText": "B. The nature of reality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. The exploration of ethics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. The existence of God",
-        "isCorrect": false
-      }
-    ]
-  },
-  {
-    "questionText": "What does ethics focus on?",
-    "answerOptions": [
-      {
-        "answerText": "A. What we ought to do, how we should live, and how we should organize our communities",
-        "isCorrect": true
-      },
-      {
-        "answerText": "B. The laws of nature and morality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. The nature of knowledge and justified belief",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. The existence of other minds",
-        "isCorrect": false
-      }
-    ]
-  },
-  {
-    "questionText": "What is the value of philosophy?",
-    "answerOptions": [
-      {
-        "answerText": "A. To broaden our understanding and free us from narrow-minded thinking",
-        "isCorrect": true
-      },
-      {
-        "answerText": "B. To provide definite answers to all philosophical questions",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. To challenge societal and religious commands",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. To stimulate wonder and promote intellectual growth",
-        "isCorrect": false
       }
     ]
   }

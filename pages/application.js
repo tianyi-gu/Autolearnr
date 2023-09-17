@@ -2,6 +2,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "components/ui/button";
 import ChatWidget  from "../components/ChatWidget";
+import { useRouter } from "next/router";
 import Modal from "../components/Modal";
 import { PencilOutline, CloseOutline } from 'react-ionicons';
 
@@ -10,7 +11,8 @@ const DynamicParticlesBg = dynamic(() => import("particles-bg"), {
 });
 
 export default function Home() {
-    const [modalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
+  const [modalOpen, setModalOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [res, setRes] = useState("None");
   const [loading, setLoading] = useState(false);
@@ -90,6 +92,7 @@ export default function Home() {
     //     audio.play();
     //   });
       setRes("Success");
+      router.push("/lessonPage");
     } catch (error) {
       console.error(error);
       setRes(error.message);
