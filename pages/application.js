@@ -57,23 +57,33 @@ export default function Home() {
         );
       }
 
-      const generateData = await generateResponse.json();
+      const generateData = JSON.parse(await generateResponse.json());
       setResult(generateData);
-      const audioResponse = await fetch("/api/synthesizeAudio", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          script: generateData,
-          fileName: "output.mp3",
-        }),
-      });
-      const audio = new Audio("/audio/output.mp3");
-      audio.addEventListener("loadedmetadata", () => {
-        const durationInSeconds = audio.duration;
-        audio.play();
-      });
+     console.log(typeof generateData);
+     for (var i = 0; i < generateData.length; i++) {
+        var obj = generateData[i];
+        console.log(obj);
+        if(obj.script){
+            const audioResponse = await fetch("/api/synthesizeAudio", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  script: obj.script,
+                  fileName: obj.name,
+                }),
+              });
+        }else{
+            break; //TODO not sure abt this
+        }
+      }
+      console.log('oui oui oui').
+    //   const audio = new Audio("/audio/output.mp3");
+    //   audio.addEventListener("loadedmetadata", () => {
+    //     const durationInSeconds = audio.duration;
+    //     audio.play();
+    //   });
       setRes("Success");
     } catch (error) {
       console.error(error);
