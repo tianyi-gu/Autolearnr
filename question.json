@@ -1,64 +1,43 @@
 [
   {
-    "questionText": "What is philosophy?",
+    "questionText": "What is philosophy often defined as?",
     "answerOptions": [
       {
-        "answerText": "A. The study of rational inquiry except for science.",
+        "answerText": "A. All rational inquiry except for science",
         "isCorrect": true
       },
       {
-        "answerText": "B. The study of science and its limitations.",
+        "answerText": "B. The study of metaphysics",
         "isCorrect": false
       },
       {
-        "answerText": "C. The study of metaphysics, epistemology, and ethics.",
+        "answerText": "C. The exploration of ethics",
         "isCorrect": false
       },
       {
-        "answerText": "D. The study of critical thinking skills.",
+        "answerText": "D. The investigation of epistemology",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What branch of science addresses the question of whether or not science covers all of rational inquiry?",
+    "questionText": "What are some metaphysical issues that philosophers ponder?",
     "answerOptions": [
       {
-        "answerText": "A. Physics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. Biology",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. Metaphysics",
+        "answerText": "A. The existence of God and the nature of human free will",
         "isCorrect": true
       },
       {
-        "answerText": "D. Epistemology",
-        "isCorrect": false
-      }
-    ]
-  },
-  {
-    "questionText": "What are some examples of metaphysical questions?",
-    "answerOptions": [
-      {
-        "answerText": "A. How are space and time related?",
+        "answerText": "B. The laws of nature and morality",
         "isCorrect": false
       },
       {
-        "answerText": "B. Does the past exist?",
+        "answerText": "C. The number of dimensions in the world",
         "isCorrect": false
       },
       {
-        "answerText": "C. How many dimensions does the world have?",
+        "answerText": "D. The existence of other minds",
         "isCorrect": false
-      },
-      {
-        "answerText": "D. All of the above",
-        "isCorrect": true
       }
     ]
   },
@@ -66,40 +45,40 @@
     "questionText": "What is epistemology concerned with?",
     "answerOptions": [
       {
-        "answerText": "A. The nature of reality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. The nature of knowledge and justified belief",
+        "answerText": "A. The nature of knowledge and justified belief",
         "isCorrect": true
       },
       {
-        "answerText": "C. How we ought to live",
+        "answerText": "B. The nature of reality",
         "isCorrect": false
       },
       {
-        "answerText": "D. The study of critical thinking skills",
+        "answerText": "C. The exploration of ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The existence of God",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is ethics concerned with?",
+    "questionText": "What does ethics focus on?",
     "answerOptions": [
       {
-        "answerText": "A. The nature of reality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. The nature of knowledge and justified belief",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. How we ought to live",
+        "answerText": "A. What we ought to do, how we should live, and how we should organize our communities",
         "isCorrect": true
       },
       {
-        "answerText": "D. The study of critical thinking skills",
+        "answerText": "B. The laws of nature and morality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. The nature of knowledge and justified belief",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The existence of other minds",
         "isCorrect": false
       }
     ]
@@ -108,19 +87,19 @@
     "questionText": "What is the value of philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. Providing definitive answers to life's questions",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. Challenging our beliefs and developing critical thinking skills",
+        "answerText": "A. To broaden our understanding and free us from narrow-minded thinking",
         "isCorrect": true
       },
       {
-        "answerText": "C. Navigating ethical dilemmas and making informed decisions",
+        "answerText": "B. To provide definite answers to all philosophical questions",
         "isCorrect": false
       },
       {
-        "answerText": "D. All of the above",
+        "answerText": "C. To challenge societal and religious commands",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. To stimulate wonder and promote intellectual growth",
         "isCorrect": false
       }
     ]
