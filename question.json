@@ -1,84 +1,84 @@
 [
   {
-    "questionText": "What is philosophy?",
+    "questionText": "What is philosophy often defined as?",
     "answerOptions": [
       {
-        "answerText": "A. The study of rational inquiry",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. The study of science",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. The study of metaphysics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. All of rational inquiry except for science",
-        "isCorrect": true
-      }
-    ]
-  },
-  {
-    "questionText": "What is metaphysics?",
-    "answerOptions": [
-      {
-        "answerText": "A. The study of reality",
+        "answerText": "A. All rational inquiry except for science",
         "isCorrect": true
       },
       {
-        "answerText": "B. The study of knowledge and justified belief",
+        "answerText": "B. The study of metaphysics",
         "isCorrect": false
       },
       {
-        "answerText": "C. The study of ethics",
+        "answerText": "C. The exploration of ethics",
         "isCorrect": false
       },
       {
-        "answerText": "D. The study of human inquiry and knowledge",
+        "answerText": "D. The investigation of epistemology",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is epistemology?",
+    "questionText": "What are some metaphysical issues that philosophers ponder?",
     "answerOptions": [
       {
-        "answerText": "A. The study of reality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. The study of knowledge and justified belief",
+        "answerText": "A. The existence of God and the nature of human free will",
         "isCorrect": true
       },
       {
-        "answerText": "C. The study of ethics",
+        "answerText": "B. The laws of nature and morality",
         "isCorrect": false
       },
       {
-        "answerText": "D. The study of human inquiry and knowledge",
+        "answerText": "C. The number of dimensions in the world",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The existence of other minds",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is ethics?",
+    "questionText": "What is epistemology concerned with?",
     "answerOptions": [
       {
-        "answerText": "A. The study of reality",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. The study of knowledge and justified belief",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. The study of what we ought to do and how we ought to live",
+        "answerText": "A. The nature of knowledge and justified belief",
         "isCorrect": true
       },
       {
-        "answerText": "D. The study of human inquiry and knowledge",
+        "answerText": "B. The nature of reality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. The exploration of ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The existence of God",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What does ethics focus on?",
+    "answerOptions": [
+      {
+        "answerText": "A. What we ought to do, how we should live, and how we should organize our communities",
+        "isCorrect": true
+      },
+      {
+        "answerText": "B. The laws of nature and morality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. The nature of knowledge and justified belief",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The existence of other minds",
         "isCorrect": false
       }
     ]
@@ -87,40 +87,19 @@
     "questionText": "What is the value of philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. It provides definitive answers to all questions",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. It removes dogmatism and expands knowledge",
+        "answerText": "A. To broaden our understanding and free us from narrow-minded thinking",
         "isCorrect": true
       },
       {
-        "answerText": "C. It limits human inquiry and knowledge",
+        "answerText": "B. To provide definite answers to all philosophical questions",
         "isCorrect": false
       },
       {
-        "answerText": "D. It keeps us narrow-minded and conventional",
-        "isCorrect": false
-      }
-    ]
-  },
-  {
-    "questionText": "Can unanswerable philosophical questions still contribute to understanding?",
-    "answerOptions": [
-      {
-        "answerText": "A. No, unanswerable questions have no value",
+        "answerText": "C. To challenge societal and religious commands",
         "isCorrect": false
       },
       {
-        "answerText": "B. Yes, understanding can still be advanced",
-        "isCorrect": true
-      },
-      {
-        "answerText": "C. Unanswerable questions have no right answer",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. Unanswerable questions are a waste of time",
+        "answerText": "D. To stimulate wonder and promote intellectual growth",
         "isCorrect": false
       }
     ]
