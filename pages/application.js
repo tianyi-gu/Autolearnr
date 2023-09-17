@@ -14,7 +14,7 @@ export default function Home() {
   const [file, setFile] = useState(null);
   const [res, setRes] = useState("None");
   const [loading, setLoading] = useState(false);
-  const [text, setText] = useState("milk");
+  const [text, setText] = useState("philosophy");
   const [script, setScript] = useState("");
   const [result, setResult] = useState("");
 
@@ -207,6 +207,7 @@ export default function Home() {
                 width="40px"
                 />
             </Button>
+            <ChatWidget style={modalStyle} />
 
             {modalOpen && <Modal setOpenModal={setModalOpen} />}
           

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const ChatWidget = ({ input_text}) => {
+const ChatWidget = () => {
   const [messages, setMessages] = useState([
-    { role: 1, content: 'Answer any questions the user has based on the following document.' },
-    { role: 2, content: 'Hi there!' },
+    { role: "system", id: 1, content: 'Answer any questions the user has based on the following document.'},
+    { role: "user", id: 2, content: 'Hi there!' },
   ]);
 
   const [newMessage, setNewMessage] = useState('');
@@ -17,11 +17,13 @@ const ChatWidget = ({ input_text}) => {
     if (newMessage.trim() === '') return;
 
     const newMessageObj = {
+      role: "user",
+      content: newMessage,
       id: messages.length + 1,
-      text: newMessage,
     };
 
     setMessages([...messages, newMessageObj]);
+    
     setNewMessage('');
   };
 
@@ -49,7 +51,10 @@ const ChatWidget = ({ input_text}) => {
           <div className="space-y-2">
             {messages.map((message) => (
               <div key={message.id} className="text-gray-700">
-                {message.text}
+                <div className={(message.role === "user" ? "text-right" : "text-left") + " font-semibold"}>
+                  {message.role === "user" ? "You" : "Tutor"}
+                </div>
+                {message.content}
               </div>
             ))}
           </div>
@@ -57,7 +62,7 @@ const ChatWidget = ({ input_text}) => {
             <input
               type="text"
               placeholder="Type your message..."
-              className="flex-grow border rounded-l-md px-2 py-1"
+              className="flex-grow border rounded-l-md px-2 py-1 "
               value={newMessage}
               onChange={handleInputChange}
             />
