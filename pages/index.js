@@ -35,7 +35,7 @@ export default function Home() {
         maxWidth: "50rem",
     };
 
-    const descriptionText = "Learning, reimagined.";
+    const descriptionText = "Learning reimagined.";
 
     const buttonStyle = {
         fontSize: "2rem",

@@ -1,105 +1,105 @@
 [
   {
-    "questionText": "What does philosophy address?",
+    "questionText": "What is the aim of philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. Questions about the nature of reality",
+        "answerText": "A. To explore questions covered by science",
         "isCorrect": false
       },
       {
-        "answerText": "B. Questions about the nature of knowledge and justified belief",
+        "answerText": "B. To challenge our assumptions",
         "isCorrect": false
       },
       {
-        "answerText": "C. Questions about how we should live and organize our communities",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. All of the above",
-        "isCorrect": true
-      }
-    ]
-  },
-  {
-    "questionText": "What are the three main branches of philosophy?",
-    "answerOptions": [
-      {
-        "answerText": "A. Metaphysics, epistemology, and ethics",
+        "answerText": "C. To gain knowledge and understanding",
         "isCorrect": true
       },
       {
-        "answerText": "B. Metaphysics, logic, and aesthetics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. Epistemology, ethics, and aesthetics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. Logic, ethics, and aesthetics",
+        "answerText": "D. To provide definitive answers",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "Why is philosophical inquiry valuable?",
+    "questionText": "Which branch of philosophy deals with questions about the nature of reality?",
     "answerOptions": [
       {
-        "answerText": "A. It provides definitive answers to fundamental questions",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. It challenges conventional thinking and encourages critical thinking",
+        "answerText": "A. Metaphysics",
         "isCorrect": true
       },
       {
-        "answerText": "C. It helps us question our own beliefs and prejudices",
+        "answerText": "B. Epistemology",
         "isCorrect": false
       },
       {
-        "answerText": "D. All of the above",
+        "answerText": "C. Ethics",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. None of the above",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What skills can philosophy help develop?",
+    "questionText": "What does epistemology focus on?",
     "answerOptions": [
       {
-        "answerText": "A. Logical reasoning, problem-solving, and effective communication",
+        "answerText": "A. The nature of knowledge and justified belief",
         "isCorrect": true
       },
       {
-        "answerText": "B. Scientific experimentation, data analysis, and technical skills",
+        "answerText": "B. Questions about what we ought to do",
         "isCorrect": false
       },
       {
-        "answerText": "C. Artistic creativity, emotional intelligence, and social skills",
+        "answerText": "C. Exploring questions beyond physical objects",
         "isCorrect": false
       },
       {
-        "answerText": "D. Physical strength, agility, and coordination",
+        "answerText": "D. None of the above",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is the value of philosophy?",
+    "questionText": "What does ethics explore?",
     "answerOptions": [
       {
-        "answerText": "A. It provides definitive answers to fundamental questions",
+        "answerText": "A. Questions about existence and time",
         "isCorrect": false
       },
       {
-        "answerText": "B. It expands our understanding and promotes intellectual growth",
+        "answerText": "B. The nature of knowledge and justified belief",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. Questions about what we ought to do and how we should live",
         "isCorrect": true
       },
       {
-        "answerText": "C. It encourages a more thoughtful and reflective approach to life",
+        "answerText": "D. None of the above",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "How does philosophy complement other areas of inquiry?",
+    "answerOptions": [
+      {
+        "answerText": "A. By providing definitive answers",
         "isCorrect": false
       },
       {
-        "answerText": "D. All of the above",
+        "answerText": "B. By challenging our assumptions",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. By bringing philosophical insight and analysis to bear on their questions and problems",
+        "isCorrect": true
+      },
+      {
+        "answerText": "D. None of the above",
         "isCorrect": false
       }
     ]
