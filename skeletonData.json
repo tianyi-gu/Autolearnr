@@ -1,0 +1,22 @@
+[
+    {
+        "name": "part1",
+        "points": "<div><h2>What Philosophy Is</h2><ul>    <li>What is philosophy?</li>    <li>Branches of philosophy: metaphysics, epistemology, and ethics</li>  </ul></div>",
+        "script": "Today we will be discussing the topic of philosophy. What exactly is philosophy? Many people have offered different answers to this question, but my favorite answer is that philosophy is all of rational inquiry except for science. Philosophical issues cover a wide range of topics such as metaphysics, epistemology, and ethics. "
+    },
+    {
+        "name": "part2",
+        "points": "<div><h2>Metaphysics</h2><ul>    <li>Nature of reality</li>    <li>Metaphysical questions of contemporary interest</li>    <li>Challenges in establishing systematic metaphysical world views</li>    <li>Exploring the realm of possibility and necessity</li>  </ul></div>",
+        "script": " Metaphysics deals with the nature of reality and explores questions like the existence of God and the nature of human free will. Epistemology is concerned with the nature of knowledge and justified belief. It asks questions like what is knowledge and can we have knowledge about certain things. Ethics, on the other hand, is concerned with what we ought to do and how we ought to live our lives. It explores questions about morality and how we should treat others. "
+    },
+    {
+        "name": "part3",
+        "points": "<div><h2>Epistemology</h2><ul>    <li>Nature of knowledge and justified belief</li>    <li>Skepticism and different levels of knowledge</li>    <li>Understanding rational justification of beliefs</li>  </ul></div>",
+        "script": " Philosophy is important because it allows us to explore new ideas and challenge deeply held beliefs. While it may not always provide definitive answers, it helps us to think critically, expand our knowledge, and consider different possibilities. Philosophy is not separate from other areas of inquiry, such as science, but rather complements them. By studying philosophy, we can gain a better understanding of the world and ourselves. It is important to be open-minded and willing to question our own beliefs in order to truly engage with philosophical inquiry. "
+    },
+    {
+        "name": "part4",
+        "points": "<div><h2>Ethics</h2><ul>    <li>Concerned with how we should live</li>    <li>Rational inquiry into morality</li>    <li>Value of moral relativism</li>    <li>Philosophy as a means of questioning conventional opinions</li>  </ul></div>",
+        "script": ""
+    }
+]

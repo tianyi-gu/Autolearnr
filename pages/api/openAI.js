@@ -96,7 +96,7 @@ export default async function handler(req, res) {
       //console.log(dataJson);
 
       // Write the JSON array to a JSON file
-      const jsonFilePath = "skeletonNotes.json";
+      const jsonFilePath = "skeletonData.json";
       fs.writeFileSync(jsonFilePath, dataJson, "utf-8");
       res.status(200).json(dataJson);
     } catch (error) {

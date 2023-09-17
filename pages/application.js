@@ -132,7 +132,7 @@ export default function Home() {
       ) : (
         <div>
           <h1 style={headingStyle} className="text-6xl font-bold">
-            Learn From Your Class Notes!
+            <i>Learn to master.</i>
           </h1>
           <form
             onSubmit={(e) => e.preventDefault()}

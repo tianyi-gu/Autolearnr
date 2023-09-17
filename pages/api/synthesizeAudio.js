@@ -10,7 +10,7 @@ export default async function handler(req, res) {
             const outputFile = `./public/audio/${fileName}`;
             const request = {
                 input: {
-                    text: script.response.replace(/\[.*?\]/g, "").replace(/.*?:/g, ""),
+                    text: script.replace(/\[.*?\]/g, "").replace(/.*?:/g, ""),
                 },
                 voice: {
                     languageCode: "en-US",
