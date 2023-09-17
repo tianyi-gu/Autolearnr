@@ -16,6 +16,7 @@
 /build
 
 apiKey.json
+skeletonNotes.json
 
 # misc
 .DS_Store

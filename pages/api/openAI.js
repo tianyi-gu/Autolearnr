@@ -37,12 +37,13 @@ export default async function handler(req, res) {
       //Skeleton Notes Generation
       let response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-16k",
+        temperature: 0,
         messages: [
           {
             role: "system",
             content:
               "You are to be given texts of a lesson. Please return an array of <div>'s, with each entry representing a main point in the text.\
-              Each entry should contain one <h2> tag representing the title of the main point, and a <ul> containing <li>'s representing subpoints. Each array should be a string",
+              Each entry should contain one <h2> tag representing the title of the main point, and a <ul> containing <li>'s representing subpoints within the text. Each array should be a string",
           },
           { role: "user", content: input },
         ],
@@ -97,7 +98,9 @@ export default async function handler(req, res) {
       const splitScriptArray = splitScript.split("|");
       let data = [];
       for (let i = 0; i < splitScriptArray.length; i++) {
-        data.push({ name: `part${i + 1}`, points: mainPoints[i], script: splitScriptArray[i] });
+        if (mainPoints[i] && splitScriptArray[i]){
+            data.push({ name: `part${i + 1}`, points: mainPoints[i], script: splitScriptArray[i] });
+        }
       }
       const dataJson = JSON.stringify(data);
       console.log(dataJson);
