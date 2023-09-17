@@ -24,8 +24,6 @@ skeletonNotes.json
 .DS_Store
 apiKey.json
 
-uploads/uploadedfile
-
 # debug
 npm-debug.log*
 yarn-debug.log*

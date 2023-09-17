@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import fs from "fs";
 
 dotenv.config();
 
@@ -58,7 +59,7 @@ export default async function handler(req, res) {
                 messages: [
                     {
                         role: "system",
-                        content: `We are trying to seperate a script for narration of a slideshow compoesd of several main points. Here, each main point corresponds to one slide. Split a script for a video into ${responseJSON.length} parts, each corrisponding to one slide and thus one main point in the slideshow. These parts are to be read, so do not give structured output of any kind and keep the spontanity of the speech. Here are the ${responseJSON.length} main points that corelate to each part of the script, each given in html format: ${titles}. Output a JSON array of all the parts.`,
+                        content: `We are trying to seperate a script for narration of a slideshow compoesd of several main points. Here, each main point corresponds to one slide. Split a script for a video into ${responseJSON.length} parts, each corrisponding to one slide and thus one main point in the slideshow. These parts are to be read, so do not give structured output of any kind and keep the spontanity of the speech. Here are the ${responseJSON.length} main points that corelate to each part of the script, each given in html format: ${titles}. Output a JSON array of all the parts. For the JSON Array each element should be a string`,
                     },
                     {
                         role: "user",
@@ -70,7 +71,7 @@ export default async function handler(req, res) {
             const splitScriptArray = JSON.parse(
                 response.choices[0].message.content
             );
-
+            let audioChunks = [];
             console.log(splitScriptArray);
             for (let i = 0; i < splitScriptArray.length; i++) {
                 audioChunks.push({

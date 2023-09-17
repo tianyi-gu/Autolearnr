@@ -3,82 +3,103 @@
     "questionText": "What is philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. The study of rational inquiry",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. The study of science",
-        "isCorrect": false
-      },
-      {
-        "answerText": "C. The study of metaphysics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. All of rational inquiry except for science",
-        "isCorrect": true
-      }
-    ]
-  },
-  {
-    "questionText": "What is metaphysics?",
-    "answerOptions": [
-      {
-        "answerText": "A. The study of reality",
+        "answerText": "A. The study of rational inquiry except for science.",
         "isCorrect": true
       },
       {
-        "answerText": "B. The study of knowledge and justified belief",
+        "answerText": "B. The study of science and its limitations.",
         "isCorrect": false
       },
       {
-        "answerText": "C. The study of ethics",
+        "answerText": "C. The study of metaphysics, epistemology, and ethics.",
         "isCorrect": false
       },
       {
-        "answerText": "D. The study of human inquiry and knowledge",
+        "answerText": "D. The study of critical thinking skills.",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is epistemology?",
+    "questionText": "What branch of science addresses the question of whether or not science covers all of rational inquiry?",
     "answerOptions": [
       {
-        "answerText": "A. The study of reality",
+        "answerText": "A. Physics",
         "isCorrect": false
       },
       {
-        "answerText": "B. The study of knowledge and justified belief",
+        "answerText": "B. Biology",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. Metaphysics",
         "isCorrect": true
       },
       {
-        "answerText": "C. The study of ethics",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. The study of human inquiry and knowledge",
+        "answerText": "D. Epistemology",
         "isCorrect": false
       }
     ]
   },
   {
-    "questionText": "What is ethics?",
+    "questionText": "What are some examples of metaphysical questions?",
     "answerOptions": [
       {
-        "answerText": "A. The study of reality",
+        "answerText": "A. How are space and time related?",
         "isCorrect": false
       },
       {
-        "answerText": "B. The study of knowledge and justified belief",
+        "answerText": "B. Does the past exist?",
         "isCorrect": false
       },
       {
-        "answerText": "C. The study of what we ought to do and how we ought to live",
+        "answerText": "C. How many dimensions does the world have?",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. All of the above",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionText": "What is epistemology concerned with?",
+    "answerOptions": [
+      {
+        "answerText": "A. The nature of reality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. The nature of knowledge and justified belief",
         "isCorrect": true
       },
       {
-        "answerText": "D. The study of human inquiry and knowledge",
+        "answerText": "C. How we ought to live",
+        "isCorrect": false
+      },
+      {
+        "answerText": "D. The study of critical thinking skills",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionText": "What is ethics concerned with?",
+    "answerOptions": [
+      {
+        "answerText": "A. The nature of reality",
+        "isCorrect": false
+      },
+      {
+        "answerText": "B. The nature of knowledge and justified belief",
+        "isCorrect": false
+      },
+      {
+        "answerText": "C. How we ought to live",
+        "isCorrect": true
+      },
+      {
+        "answerText": "D. The study of critical thinking skills",
         "isCorrect": false
       }
     ]
@@ -87,40 +108,19 @@
     "questionText": "What is the value of philosophy?",
     "answerOptions": [
       {
-        "answerText": "A. It provides definitive answers to all questions",
+        "answerText": "A. Providing definitive answers to life's questions",
         "isCorrect": false
       },
       {
-        "answerText": "B. It removes dogmatism and expands knowledge",
+        "answerText": "B. Challenging our beliefs and developing critical thinking skills",
         "isCorrect": true
       },
       {
-        "answerText": "C. It limits human inquiry and knowledge",
+        "answerText": "C. Navigating ethical dilemmas and making informed decisions",
         "isCorrect": false
       },
       {
-        "answerText": "D. It keeps us narrow-minded and conventional",
-        "isCorrect": false
-      }
-    ]
-  },
-  {
-    "questionText": "Can unanswerable philosophical questions still contribute to understanding?",
-    "answerOptions": [
-      {
-        "answerText": "A. No, unanswerable questions have no value",
-        "isCorrect": false
-      },
-      {
-        "answerText": "B. Yes, understanding can still be advanced",
-        "isCorrect": true
-      },
-      {
-        "answerText": "C. Unanswerable questions have no right answer",
-        "isCorrect": false
-      },
-      {
-        "answerText": "D. Unanswerable questions are a waste of time",
+        "answerText": "D. All of the above",
         "isCorrect": false
       }
     ]
